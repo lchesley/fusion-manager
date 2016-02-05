@@ -1,0 +1,288 @@
+Skill,Description,Type,Cost,Heritable,InheritanceType
+Twin Slash,Deals light Cut damage to one foe (2 hits),Cut,18 HP,X,Physical
+Cleave,Deals light Cut damage to one foe,Cut,28 HP,X,Physical
+Tempest Slash,Deals light Cut damage to one foe (3 hits),Cut,48 HP,X,Physical
+Zanshinken,Deals moderate Cut damage to one foe. Attacks again at the end of the turn if caster has taken no damage this turn,Cut,98 HP,X,Physical
+Fatal End,Deals heavy Cut damage to one foe. This attack always goes last,Cut,76 HP,X,Physical
+Guillotine,Deals heavy Cut damage to one foe with bonus damage to foes that are afflicted with an ailment.,Cut,87 HP,X,Physical
+Vorpal Blade,Deals heavy Cut damage to one foe.,Cut,94 HP,X,Physical
+Brutal Slash,Deals heavy Cut damage to one foe,Cut,134 HP,X,Physical
+Heaven's Blade,Deals severe Cut damage to one foe.,Cut,182 HP,,Physical
+Mighty Swing,Deals light Cut damage to one foe and one adjecent target,Cut,56 HP,X,Physical
+Blade of Fury,Deals heavy Cut damage to one row of foe(s),Cut,126 HP,X,Physical
+Deathbound,Deals heavy Cut damage to all foes,Cut,145 HP,X,Physical
+Hassou Tobi,Deals heavy Cut damage to all foes (8hits),Cut,164 HP,,Physical
+Danse Macabre,Deals heavy Cut damage to all foes (5~7hits),Cut,176 HP,,Physical
+Toxic Slice,"Deals Cut damage to one foe, with a moderate chance of Poison",Cut,10 HP,X,Physical
+Stunning Slice,"Deals Cut damage to one foe, with a moderate chance of Paralysis",Cut,10 HP,X,Physical
+Gurentou,Deals light Cut + Fire damage to one foe,Cut,24 HP,X,Physical
+Gokuentou,Deals moderate Cut + Fire damage to one foe,Cut,92 HP,X,Physical
+Hientou,Deals heavy Cut + Fire damage to one foe,Cut,135 HP,X,Physical
+Frost Edge,Deals light Cut + Ice damage to one foe,Cut,16 HP,X,Physical
+Glacial Edge,Deals moderate Cut + Ice damage to one foe,Cut,38 HP,X,Physical
+Tousatsujin,Deals heavy Cut + Ice damage to one foe,Cut,135 HP,X,Physical
+Raikouzan,Deals light Cut + Electricity damage to one foe,Cut,24 HP,X,Physical
+Raimeizan,Deals moderate Cut + Electricity damage to one foe,Cut,92 HP,X,Physical
+Raijinzan,Deals heavy Cut + Electricity damage to one foe,Cut,135 HP,X,Physical
+Jinpugeki,Deals light Cut + Wind damage to one foe,Cut,24 HP,X,Physical
+Reppu Strike,Deals moderate Cut + Wind damage to one foe,Cut,92 HP,X,Physical
+Kamikaze Strike,Deals heavy Cut + Wind damage to one foe,Cut,135 HP,X,Physical
+Flame Link,Deals light Cut+Fire damage to one foe. This attack occurs again when an ally hits the same foe.,Cut,48 HP,X,Physical
+Frost Link,Deals light Cut+Ice damage to one foe. This attack occurs again when an ally hits the same foe.,Cut,48 HP,X,Physical
+Bolt Link,Deals light Cut+Electricity damage to one foe. This attack occurs again when an ally hits the same foe.,Cut,48 HP,X,Physical
+Gale Link,Deals light Cut+Wind damage to one foe. This attack occurs again when an ally hits the same foe.,Cut,48 HP,X,Physical
+Calamity Seed,"Multiple heavy Cut attacks per turn, for 3 turns. (All Enemies)",Cut,100 SP,,Physical
+Buchikamashi,Deals light Bash damage to one foe.,Bash,18 HP,X,Physical
+Holy Touch,Deals heavy Bash damage to one foe.,Bash,88 HP,X,Physical
+God's Hand,Deals severe Bash damage to one foe.,Bash,162 HP,,Physical
+Light Wave,Deals severe Bash damage to one foe.,Bash,186 HP,,Physical
+Revenge Blow,Deals Bash damage to target for one turn later. Damage is increased by number of hits taken.,Bash,100 HP,X,Physical
+Heat Wave,Deals moderate Bash damage to one foe and one adjacent target,Bash,92 HP,X,Physical
+Gigantic Fist,Deals moderate Bash damage to one foe and one adjacent target,Bash,110 HP,X,Physical
+Angelic Trumpet,Deals heavy Bash Damage to all foes (3 hits),Bash,?,,Physical
+Teardrop,Deals light Bash damage to one foe and lowers target's Defence for this turn,Bash,16 HP,X,Physical
+Moondrop,Deals moderate Bash damage to one foe and lowers target's Defence for this turn,Bash,92 HP,X,Physical
+Stardrop,Deals heavy Bash damage to one foe and lowers target's Defence for this turn,Bash,124 HP,X,Physical
+Fang Smash,Deals moderate Bash damage and lowers physical attack to one foe for 3 turns,Bash,62 HP,X,Physical
+Kidney Smash,Deals moderate Bash damage and lowers Magic attack to one foe for 3 turns,Bash,62 HP,X,Physical
+Skull Cracker,"Deals light Bash damage to one foe, with a moderate chance of Magic Bind",Bash,42 HP,X,Physical
+Sleeper Punch,"Deals light Bash damage to one foe, with a moderate chance of Sleep",Bash,16 HP,X,Physical
+Sonic Punch,"Deals moderate Bash damage to one foe, with a moderate chance of Sleep",Bash,82 HP,X,Physical
+Brain Shake,"Deals heavy Bash damage to one foe, with a moderate chance of Sleep",Bash,112 HP,X,Physical
+Assault Dive,"Deals moderate Bash damage to one foe, moderate chance of inflicting 'Down'",Bash,48 HP,X,Physical
+Fusion Blast,Deals light Bash + Fire damage to one foe,Bash,12 HP,X,Physical
+Scorching Blast,Deals moderate Bash + Fire damage to one foe,Bash,54 HP,X,Physical
+Nuclear Blast,Deals heavy Bash + Fire damage to one foe,Bash,102 HP,X,Physical
+Bolt Strike,Deals light Bash + Electricity damage to one foe,Bash,12 HP,X,Physical
+Lightning Smash,Deals moderate Bash + Electricity damage to one foe,Bash,54 HP,X,Physical
+Thunder Smash,Deals heavy Bash + Electricity damage to one foe,Bash,102 HP,X,Physical
+Double Shot,Deals light damage to one foe (2 hits),Stab,12 HP,X,Physical
+End Shot,Deals heavy Stab damage to one foe. This attack always goes last,Stab,?,X,Physical
+Primal Force,Deals heavy Stab damage to one foes,Stab,56 HP,X,Physical
+Prana,Severe Stab damage?,Stab,?,,Physical
+Broadshot,Deals light Stab damage to one row of foes,Stab,24 HP,X,Physical
+Swift Strike,Moves quickly to deal 3 hits of moderate Stab damage to one row of foes,Stab,58 HP,X,Physical
+Single Shot,"Deals light Stab damage one foe in the front row, Stabs to one foe in the back row",Stab,14 HP,X,Physical
+Assault Shot,"Deals moderate Stab damage one foe in the front row, Stabs to one foe in the back row",Stab,56 HP,X,Physical
+Heavy Shot,"Deals heavy Stab damage one foe in the front row, Stabs to one foe in the back row",Stab,98 HP,X,Physical
+Silent Thrust,"Deals heavy Stab damage one foe in the front row, Stabs to one foe in the back row",Stab,164 HP,X,Physical
+Arrow Rain,Deals light Stab damage to all foes,Stab,64 HP,X,Physical
+Hailstorm,Deals moderate Stab damage to all foes,Stab,84 HP,X,Physical
+Aeon Rain,Deals heavy Stab damage to all foes,Stab,124 HP,X,Physical
+Myriad Arrows,Deals light Stab damage to all foes (6-8 hits). Low accuracy.,Stab,130 HP,X,Physical
+Resseiha,Deals moderate Almighty damage to 1~5 foes.,Almighty physical,62 HP,X,Physical
+Shinkuuha,Deals Almighty damage to one foe (2hits),Almighty physical,82 HP,X,Physical
+Shadow Run,Deals heavy Almighty physical damage to all foes,Almighty physical,147 HP,X,Physical
+Photon Edge,Deals severe Almighty physical damage to one foe,Almighty physical,154 HP,X,Physical
+World's End,A severe Almighty attack to all enemies,Almighty physical,188 HP,,Physical
+Pralaya,"A severe Almighty attack, with medium chance of instant kill, to all enemies",Almighty physical,196 HP,,Physical
+Door of Hades,"3 heavy Almighty attacks, 1 per turn. High chance of instant kill. (All Enemies)",Almighty physical,?,,Physical
+Agi,Deals light Fire damage to one foe,Fire,8 SP,X,Fire
+Agilao,Deals moderate Fire damage to one foe,Fire,28 SP,X,Fire
+Agidyne,Deals heavy Fire damage to one foe,Fire,46 SP,X,Fire
+Ragnarok,Deals severe Fire damage to one foe,Fire,?,,Fire
+Maragi,Deals light Fire damage to all foes,Fire,14 SP,X,Fire
+Maragion,Deals moderate Fire damage to all foes,Fire,36 SP,X,Fire
+Maragidyne,Deals heavy Fire damage to all foes,Fire,64 SP,X,Fire
+Bufu,Deals light Ice damage to one foe,Ice,8 SP,X,Ice
+Bufula,Deals moderate Ice damage to one foe,Ice,28 SP,X,Ice
+Bufudyne,Deals heavy Ice damage to one foe,Ice,46 SP,X,Ice
+Mabufu,Deals light Ice damage to all foes,Ice,14 SP,X,Ice
+Mabufula,Deals moderate Ice damage to all foes,Ice,36 SP,X,Ice
+Mabufudyne,Deals heavy Ice damage to all foes,Ice,64 SP,X,Ice
+Icy Paradise,2-4 medium Ice attacks against random targets. (All enemies),Ice,?,,Ice
+Niflheim,Deals Severe Ice damage to all foes,Ice,?,,Ice
+Zio,Deals light Electricity damage to one foe,Elec,8 SP,X,Electricity
+Zionga,Deals moderate Electricity damage to one foe,Elec,28 SP,X,Electricity
+Ziodyne,Deals heavy Electricity damage to one foe,Elec,46 SP,X,Electricity
+Thunder Reign,Deals severe Electricity damage to one foe,Elec,?,,Electricity
+Mazio,Deals light Electricity damage to all foes,Elec,14 SP,X,Electricity
+Mazionga,Deals moderate Electricity damage to all foes,Elec,36 SP,X,Electricity
+Maziodyne,Deals heavy Electricity damage to all foes,Elec,64 SP,X,Electricity
+Keraunos,Deals heavy Electricity damage to all foes (6 hits),Elec,96 SP,,Electricity
+Garu,Deals light Wind damage to one foe,Wind,8 SP,X,Wind
+Garula,Deals moderate Wind damage to one foe,Wind,28 SP,X,Wind
+Garudyne,Deals heavy Wind damage to one foe,Wind,46 SP,X,Wind
+Panta Rhei,Deals severe Wind damage to one foe,Wind,?,,Wind
+Magaru,Deals light Wind damage to all foes,Wind,14 SP,X,Wind
+Magarula,Deals moderate Wind damage to all foes,Wind,36 SP,X,Wind
+Magarudyne,Deals heavy Wind damage to all foes,Wind,64 SP,X,Wind
+Hama,Low chance of instant death from the power of Light to one foe,Light,12 SP,X,Light
+Hamaon,Moderate chance of instant death from the power of Light to one foe,Light,24 SP,X,Light
+Mahama,Low chance of instant death from the power of Light to all foes,Light,18 SP,X,Light
+Mahamaon,Moderate chance of instant death from the power of Light to all foes,Light,32 SP,X,Light
+Samsara,High chance of instant death from the power of Light to all foes,Light,?,,Light
+Mudo,Low chance of instant death from the power of Darkness to one foe,Dark,12 SP,X,Dark
+Mudoon,Moderate chance of instant death from the power of Darkness to one foe,Dark,24 SP,X,Dark
+Mamudo,Low chance of instant death from the power of Darkness to all foes,Dark,18 SP,X,Dark
+Mamudoon,Moderate chance of instant death from the power of Darkness to all foes,Dark,32 SP,X,Dark
+Die For Me!,High chance of instant death from the power of Darkness to all foes,Dark,74 SP,,Dark
+Megido,"Deals moderate Almighty damage to all foes, moderate chance of inflicting Down",Almighty,54 SP,X,Almighty
+Megidola,"Deals heavy Almighty damage to all foes, moderate chance of inflicting Down",Almighty,68 SP,X,Almighty
+Megidolaon,"Deals severe Almighty damage to all foes, moderate chance of inflicting Down",Almighty,82 SP,,Almighty
+Morning Star,Deals severe Almighty damage to all foes,Almighty,99 SP,X,Almighty
+Black Viper,Deals severe damage to one foe. This attack ignores elemental resistance.,Almighty,99 SP,,Almighty
+Summon Ghost,Deals moderate Almighty damage to all foes if there is a Circle active.,Almighty,58 SP,X,Almighty
+Summon Demon,Deals moderate Almighty damage to all foes if there is a Circle active.,Almighty,72 SP,,Almighty
+Poisma,Moderate chance to inflict Poison to one foe,Ailment,8 SP,X,Status
+Poison Breath,Moderate chance to inflict Poison to all foes,Ailment,12 SP,X,Status
+Pulinpa,Moderate chance to inflict Panic to one foe,Ailment,6 SP,X,Status
+Tentarafoo,Moderate chance to inflict Panic to all foes,Ailment,12 SP,X,Status
+Dormina,Moderate chance to inflict Sleep to one foe,Ailment,8 SP,X,Status
+Lullaby Song,Moderate chance to inflict Sleep to all foes,Ailment,12 SP,X,Status
+Evil Touch,Moderate chance to inflict Curse to one foe,Ailment,8 SP,X,Status
+Evil Smile,Moderate chance to inflict Curse to all foes,Ailment,12 SP,X,Status
+Disarm,Moderate chance to inflict Strength Bind to one foe,Bind,8 SP,X,Status
+Makajam,Moderate chance to inflict Magic Bind to one foe,Bind,8 SP,X,Status
+Scarecrow,Moderate chance to inflict Agility Bind to one foe,Bind,8 SP,X,Status
+Salome's Kiss,"Moderate chance to inflict Strength, Magic, or Agility Bind to one foe",Bind,64SP,,Status
+Panic Circle,Deploys a Circle that has a moderate chance to inflict Panic to all foes,Circle,18 SP,X,Status
+Poison Circle,Deploys a Circle that has a moderate chance to inflict Poison to all foes,Circle,18 SP,X,Status
+Sleep Circle,Deploys a Circle that has a moderate chance to inflict Sleep to all foes,Circle,18 SP,X,Status
+Stun Circle,Deploys a Circle that has a moderate chance to inflict Paralysis to all foes,Circle,18 SP,X,Status
+Decay Circle,Deploys a Circle that has a moderate chance to inflict Strength Bind to all foes,Circle,24 SP,X,Status
+Silence Circle,Deploys a Circle that has a moderate chance to inflict Magic Bind to all foes,Circle,24 SP,X,Status
+Lethargy Circle,Deploys a Circle that has a moderate chance to inflict Agility Bind to all foes,Circle,24 SP,X,Status
+Dia,Slightly restores one ally's HP,Heal,6 SP,X,Recovery
+Diarama,Moderatly restores one ally's HP,Heal,18 SP,X,Recovery
+Diarahan,Fully restores HP of one ally,Heal,48 SP,X,Recovery
+Media,Slightly restores all ally's HP,Heal,12 SP,X,Recovery
+Mediarama,Moderately restores party's HP.,Heal,24 SP,X,Recovery
+Mediarahan,Fully restores party's HP,Heal,?,X,Recovery
+Recarm,Revives an ally with 50% HP.,Heal,16 SP,X,Recovery
+Samarecarm,Revives an ally with full HP.,Heal,34 SP,X,Recovery
+Healing Harp,"Slightly restores hp, disples negative status and Seals on party",Heal,68 SP,,Recovery
+Patra,Dispels all negative status effects on one ally,Recovery,6 SP,X,Recovery
+Me Patra,Dispels all negative status effects on party,Recovery,12 SP,X,Recovery
+Mutudi,Disples Seal status on one ally,Recovery,6 SP,X,Recovery
+Pure Memento,"At the end of every turn, dispels negative status on allies in the same row as the caster. Lasts for 3 turns.",Recovery,18 SP,X,Recovery
+Free Memento,"At the end of every turn, dispels Seal status on allies in the same row as the caster. Lasts for 3 turns.",Recovery,18 SP,X,Recovery
+Tarukaja,Increases one ally's Attack for 3 turns.,Buff,8 SP,X,Support
+Matarukaja,Increases party's Attack for 3 turns.,Buff,18 SP,X,Support
+Rakukaja,Increases one ally's Defense for 3 turns.,Buff,8 SP,X,Support
+Marakukaja,Increases party's Defense for 3 turns.,Buff,18 SP,X,Support
+Sukukaja,Increases one ally's Accuracy and Evade for 3 turns.,Buff,8 SP,X,Support
+Masukukaja,Increases party's Accuracy and Evade for 3 turns.,Buff,18 SP,X,Support
+Dekunda,Nullifies -nda effects on party.,Buff,24 SP,X,Support
+Bestial Roar,Increases Attack and allows the user to go first for 3 turns,Buff,16 SP,X,Support
+Dragon Cry,Greatly Increases Attack and allows the user to go first for 3 turns,Buff,28 SP,X,Support
+Critical Eye,Increases Critical hit chance for 3 turns,Buff,28 SP,X,Support
+Mind's Eye,Increases Critical hit chance for 3 turns,Buff,?,X,Support
+Shura Tensei,"Consumes ~33% max HP for each action to greatly increase damage dealt,",Buff,24 SP,X,Support
+Mind Charge,Deals about 3x dmg on next Magic attack. Effect lasts for 3 turns.,Buff,40 SP,,Support
+Power Charge,Deals about 3x dmg on next physical attack. Effect lasts for 3 turns.,Buff,40 SP,,Support
+Death Chaser,Does a follow - up attack with the 'Attack' command when an ally in the same row attacks. Lasts for 3 turns.,Buff,124 HP,,Support
+Death Counter,Counterattacks with the 'Attack' command when allies in the same row are attacked. Lasts for 3 turns.,Buff,54 HP,X,Support
+Shura Revert,"Cancels Shura Tensei, restores hp.",Buff,8 SP,,Recovery
+Safeguard,Directs all attacks to one ally to self. Damage taken this way is reduced.,Buff,12 SP,X,Support
+Body Shield,Directs all attacks to one row of ally to self. Damage taken this way is reduced.,Buff,18 SP,X,Support
+Life Wall,Directs all attacks to all allies to self. Damage taken this way is reduced.,Buff,24 SP,X,Support
+Fire Wall,Increases all allies Fire resistance for 3 turns,Buff,16 SP,X,Support
+Ice Wall,Increases all allies Resist Iceance for 3 turns,Buff,16 SP,X,Support
+Elec Wall,Increases all allies Electricity resistance for 3 turns,Buff,16 SP,X,Support
+Wind Wall,Increases all allies Wind resistance for 3 turns,Buff,16 SP,X,Support
+Light Wall,Increases all allies Light resistance for 3 turns,Buff,16 SP,X,Support
+Dark Wall,Increases all allies Dark resistance for 3 turns,Buff,16 SP,X,Support
+Lunar Blessing,Blocks the first attack that hits allies each turn. Last for 3 turns.,Buff,87 SP,,Support
+Tarunda,Decreases one foe's Attack for 3 turns.,Debuff,8 SP,X,Support
+Matarunda,Decreases all foes' Attack for 3 turns.,Debuff,18 SP,X,Support
+Rakunda,Decreases one foe's Defense for 3 turns.,Debuff,8 SP,X,Support
+Marakunda,Decreases all foes' Defense for 3 turns.,Debuff,18 SP,X,Support
+Sukunda,Decreases one foe's Accuracy and Evade for 3 turns.,Debuff,8 SP,X,Support
+Masukunda,Decreases all foes Accuracy and Evade for 3 turns.,Debuff,18 SP,X,Support
+Stagnant Air,Extends duration of all negative status on all foes for 3 turns. This move does not stack with itself.,Debuff,?,,Support
+Dekaja,Cancels -kaja effects on all foes,Debuff,24 SP,X,Support
+Demon's Cut,Slightly increases Cut damage.,Passive,0,X,Passive
+God's Cut,Increases the damage of Cut attacks,Passive,0,,Passive
+Demon's Bash,Slightly increases Bash damage.,Passive,0,X,Passive
+God's Bash,Increase damage of Bash attacks,Passive,0,,Passive
+Demon's Stab,Slightly increases Stab damage.,Passive,0,X,Passive
+God's Stab,Increases the damage of Stab attacks,Passive,0,,Passive
+Fire Boost,Slightly strengthens Fire skills,Passive,0,X,Passive
+Fire Amp,Strengthens Fire skills,Passive,0,,Passive
+Ice Boost,Slightly strengthens Ice skills,Passive,0,X,Passive
+Ice Amp,Strengthens Ice skills,Passive,0,,Passive
+Elec Boost,Slightly strengthens Lightning skills,Passive,0,X,Passive
+Elec Amp,Strengthens Lightning skills,Passive,0,,Passive
+Wind Boost,Slightly strengthens Wind skills,Passive,0,X,Passive
+Wind Amp,Strengthens Wind skills,Passive,0,,Passive
+Warrior Title,Increases critical Bash chance.,Passive,0,,Passive
+Raging Fists,Increases critical hit damage.,Passive,0,,Passive
+Rebel Spirit,Increases damages against targets with very high hp.,Passive,0,,Passive
+First Star,Deals increased damaged when attacking earlier than all foes.,Passive,0,X,Passive
+Bloody Vanguard,Foes damaged by this character takes increased damage from allies.,Passive,0,X,Passive
+Colossal Swing,Low chance for a single target offensive skill's damage to spread to adjacent foes.,Passive,0,,Passive
+Forked Spear,"Moderate chance for the ""Attack"" command to occur a second time.",Passive,0,X,Passive
+Heroic Gemini,Low chance to automatically cast an offensive skill a second time.,Passive,0,,Passive
+Death's Scythe,Greatly increases damage done against targets afflicted with negative status,Passive,0,,Passive
+Judgment Sword,Automatically attacks with 'Attack' command when foe is afflicted with Seal status.,Passive,0,,Passive
+Punishment,Increases critical chance against targets with Seal status,Passive,0,X,Passive
+Impure Reach,Increases chance to afflict foe with negative status,Passive,0,X,Passive
+Binding Hands,Increases chance to afflict foe with Seal,Passive,0,X,Passive
+Double Link,"Increases the damage for the first hit of Link, allows for a total of 3 follow up hits",Passive,0,X,Passive
+Triple Link,"Increases the damage for the first hit of Link, allows for a total of 4 follow up hits",Passive,0,X,Passive
+Quadruple Link,"Increases the damage for the first hit of Link, allows for a total of 5 follow up hits",Passive,0,X,Passive
+Infinite Link,"Increases the damage for the first hit of Link, allows for a total of 8 follow up hits",Passive,0,,Passive
+Golden Link,Increases damage of Link's proc damage according to how how many times it has been activated. Only deals increased damage from 2 proc onwards,Passive,0,,Passive
+Shura Instincts,High chance to activate Shura Tensei every turn. Consumes HP each turn to greatly increase attack power.,Passive,0,,Passive
+Lemegeton,Raise power of summons in Circles.,Passive,0,,Passive
+Resist Fire,Reduces damage taken from Fire skills,Passive,0,X,Passive
+Resist Ice,Reduces damage taken from Ice skills,Passive,0,X,Passive
+Resist Elec,Reduces damage taken from Lightning skills,Passive,0,X,Passive
+Resist Wind,Reduces damage taken from Wind skills,Passive,0,X,Passive
+Resist Dark,Reduces effectiveness of Dark skills,Passive,0,X,Passive
+Resist Light,Reduces effectiveness of Light skills,Passive,0,X,Passive
+Absorb Elec,Absorbs Lightning skills,Passive,0,,Passive
+Absorb Fire,Absorbs Fire skills,Passive,0,,Passive
+Absorb Ice,Absorbs Ice skills,Passive,0,,Passive
+Absorb Wind,Absorbs Wind skills,Passive,0,,Passive
+Null Curse,Immune to Curse,Passive,0,X,Passive
+Null Panic,Immune to Panic,Passive,0,X,Passive
+Null Paralysis,Immune to Paralysis,Passive,0,X,Passive
+Null Petrify,Immune to Petrify,Passive,0,X,Passive
+Null Poison,Immune to Poison,Passive,0,X,Passive
+Null Sleep,Immune to Sleep,Passive,0,X,Passive
+Null S-Bind,Immune to Strength Bind,Passive,0,X,Passive
+Null M-Bind,Immune to Magic Seal,Passive,0,X,Passive
+Null A-Bind,Immune to Speed Seal,Passive,0,X,Passive
+Restoring Touch,Greatly increases natural recovery from negative and Seal status.,Passive,0,X,Passive
+Trick Step,Increases evasion against some attacks,Passive,0,,Passive
+Immunity Buffer,High chance to negate physical attacks done to Self.,Passive,0,,Passive
+Runic Shield,"Moderate chance to negate fire, wind, ice, and electricity damage against self and allies in the same row.",Passive,0,,Passive
+Return from Yomi,"When hp goes below 30%, moderate chance to recover some hp.",Passive,0,,Passive
+Endure,"Once per battle, endures a killing blow and leaves the character with 1 hp.",Passive,0,,Passive
+Pain Watcher,High Chance of activate Pain-Eater at the start of the battle,Passive,0,X,Passive
+Healing Hand,Increases healing done from healing skills (note 2),Passive,0,,Passive
+Circle Recovery,"When a Circle spell is in effect, slightly heals party every turn",Passive,0,X,Passive
+Pain-Eater,"Increases defence, taunt foes to attack caster more often. Lasts for 3 turns.",Passive,0,X,Passive
+Swordbreaker,Moderate chance to half physical damage done to self and allies in the same row.,Passive,0,X,Passive
+Sutakora Foot,Escapes from battle and warps to floor entrance,Battle,1 Gauge,X,Navigator
+Orb of Haste,Increases accuracy and evade for all allies. Lasts for 3 turns.,Battle,2 Gauges,X,Navigator
+Orb of Power,Increases physical and magic attack for all allies. Lasts for 3 turns.,Battle,2 Gauges,X,Navigator
+Orb of Resolve,Increases physical and magic defence for all allies. Lasts for 3 turns.,Battle,2 Gauges,X,Navigator
+Purifying Rain,Dispels all negative and Seal status on all allies.(default),Battle,2 Gauges,X,Navigator
+Renewal Ray,Recovers a slight amount of hp to all allies . In battle only,Battle,2 Gauges,X,Navigator
+Yomi Return,Revives an ally with 50% hp,Battle,3 Gauges,X,Navigator
+Eternal Melody,Extends the durarion of all buffs on party for 3 turns.,Battle,3 Gauges,X,Navigator
+Renewal Aura,Recovers a moderate amount of hp to all allies . In battle only,Battle,3 Gauges,X,Navigator
+Heroic Wind,Restores 5% of max hp for all allies at the end of every turn.,Battle,0,X,Navigator
+Hunting Prayer,Increases monster material drop rate.,Battle,0,X,Navigator
+Life Aid,"At the end of every battle, restores 20% of max hp for all allies.",Battle,0,X,Navigator
+Snake Glare,Prevents foes from getting first turn attack bonus.,Battle,0,X,Navigator
+Victory Cry,"At the end of every battle, restores all hp for all allies",Battle,0,,Navigator
+Alleys of Light,Slightly restores hp of party for every step taken in the dungeon,Labyrinth,0,,Navigator
+Calming Lull,Totally avoids all encounters while harvesting from Power Spot.,Labyrinth,0,X,Navigator
+Clairvoyance,"Shows the location of nearby chest, shortcuts and FOEs.",Labyrinth,0,X,Navigator
+Cornucopia,"Greatly increases no. of times for harvesting from a Power Spot, and chance of obtaining rare material.",Labyrinth,0,X,Navigator
+Faerie's Vigil,Shows location of nearby shortcuts,Labyrinth,0,X,Navigator
+Farsight,"Shows the location of chest, shortcuts and FOEs in a wide area.",Labyrinth,0,X,Navigator
+Fortune Hunter,Show location of Treasure Chests in a wide area,Labyrinth,0,X,Navigator
+Harvest Prayer,"Increases no. of times for harvesting from a Power Spot, and chance of obtaining rare material.",Labyrinth,0,X,Navigator
+Magic Mallet,Increases chance of harvesting rare material from Power Spot,Labyrinth,0,X,Navigator
+Paths of Light,Restores hp of party for every step taken in the dungeon,Labyrinth,0,,Navigator
+Roads of Light,Slightly restores SP of party for every step taken in the dungeon,Labyrinth,0,,Navigator
+Safety Prayer,Reduces chance of encountering enemies while harvesting from Power Spots.,Labyrinth,0,X,Navigator
+Spotter,Slightly increases chance of harvesting rare material from Power Spot,Labyrinth,0,X,Navigator
+Tengu's Vigil,Shows location of shortcuts in a wide area.,Labyrinth,0,X,Navigator
+Treasure Hunter,Show location of nearby Treasure Chests,Labyrinth,0,X,Navigator
+Endless Bounty,Higher rate of materials drops from enemies.,Labyrinth,0,,Navigator

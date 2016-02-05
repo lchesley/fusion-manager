@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FusionManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,13 @@ namespace FusionManager.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPersonaRepository repository;
+
+        public HomeController(IPersonaRepository repository)
+        {
+            this.repository = repository;
+        }
+
         public ActionResult Index()
         {
             return View();
