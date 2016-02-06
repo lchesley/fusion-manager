@@ -50,8 +50,15 @@ namespace FusionManager.Models
         }
 
         public Skill GetSkillBySkillName(string skillName)
-        {            
-            return skillList.Where(o => o.Name == skillName).FirstOrDefault();            
+        {
+            try
+            {
+                return skillList.Where(o => o.Name == skillName).Single();
+            }
+            catch (Exception ex)
+            {
+                throw new KeyNotFoundException(String.Format("No skill named {0} exists.", skillName), ex);
+            }
         }
 
         protected List<Skill> BuildSkillList(StreamReader reader)

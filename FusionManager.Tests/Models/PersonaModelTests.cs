@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FusionManager.Models;
 using System.IO;
 using System.Web;
+using System.Collections.Generic;
 
 namespace FusionManager.Tests.Models
 {
@@ -92,6 +93,19 @@ namespace FusionManager.Tests.Models
             //Assert            
             Assert.AreEqual(expected, result);
             Assert.IsInstanceOfType(result, typeof(Persona));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
+        public void GetPersonaByPersonaName_PersonaDoesNotExist()
+        {
+            //Arrange                
+            string name = "Invalid";
+
+            //Act
+            var result = model.GetPersonaByPersonaName(name);
+
+            //Assert                        
         }
     }
 }

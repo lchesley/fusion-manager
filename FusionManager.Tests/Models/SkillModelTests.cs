@@ -85,23 +85,23 @@ namespace FusionManager.Tests.Models
         }
 
         [TestMethod]
+        [ExpectedException(typeof(KeyNotFoundException))]
         public void GetSkillBySkillName_GetActualSkillByInvalidName()
         {
             //Arrange                            
-            string skillName = String.Empty;
+            string skillName = "Invalid";
 
             //Act
             var result = model.GetSkillBySkillName(skillName);
 
-            //Assert
-            Assert.IsNull(result);            
+            //Assert            
         }
 
         [TestMethod]
         public void GetLearnedSkillsFromSkillList()
         {
             //Arrange                            
-            string skillList = String.Empty;
+            string skillList = "Spotter, Agi, Hama(4), Tarunda(5), Resist Fire(6)";
 
             //Act
             var result = model.GetLearnedSkillsFromSkillList(skillList);

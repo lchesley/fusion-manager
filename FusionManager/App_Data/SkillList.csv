@@ -249,7 +249,7 @@ Restoring Touch,Greatly increases natural recovery from negative and Seal status
 Trick Step,Increases evasion against some attacks,Passive,0,,Passive
 Immunity Buffer,High chance to negate physical attacks done to Self.,Passive,0,,Passive
 Runic Shield,"Moderate chance to negate fire, wind, ice, and electricity damage against self and allies in the same row.",Passive,0,,Passive
-Return from Yomi,"When hp goes below 30%, moderate chance to recover some hp.",Passive,0,,Passive
+Return From Yomi,"When hp goes below 30%, moderate chance to recover some hp.",Passive,0,,Passive
 Endure,"Once per battle, endures a killing blow and leaves the character with 1 hp.",Passive,0,,Passive
 Pain Watcher,High Chance of activate Pain-Eater at the start of the battle,Passive,0,X,Passive
 Healing Hand,Increases healing done from healing skills (note 2),Passive,0,,Passive

@@ -52,7 +52,7 @@ Queen Mab,Lovers,24,51,34,"Null Panic, Zionga, Mind Charge(25), Masukunda(26), E
 Hua Po,Magician,25,47,33,"Recarm, Maragi, Media(26), Fire Boost(27), Agilao(28), Healing Hand(29)",,Recarm,Fire_C
 King Frost,Emperor,25,100,26,"Absorb Ice, Bufula, Ice Wall(26), Mabufu(27), Ice Boost(28), Spotter(29)",,Ice Wall,Ice_C
 Mothman,Hermit,25,72,26,"Null Poison, Poison Breath, Mazio(26), Mudoon(27), Magaru(28), Absorb Wind(29)",,Poison Breath,Light_C
-Orpheus Telos,Fool,26,125,33,"Flame Link, Golden Link, Healing Harp(27), Forked Spear(28), Absorb Fire(29), Return from Yomi(30), Fire Amp(31), Victory Cry(32)",X,Forked Spear,
+Orpheus Telos,Fool,26,125,33,"Flame Link, Golden Link, Healing Harp(27), Forked Spear(28), Absorb Fire(29), Return From Yomi(30), Fire Amp(31), Victory Cry(32)",X,Forked Spear,
 Fortuna,Fortune,26,43,38,"Cornucopia, Garula, Alleys of Light(27), Pure Memento(28), Resist Wind(29), Masukukaja(30)",,Pure Memento,Fire_C
 Tsuchigumo,Strength,26,109,19,"Rebel Spirit, Decay Circle, Arrow Rain(27), Circle Recovery(28), Guillotine(29), Null Petrify(30)",,Arrow Rain,Physical_A
 Orochi,Moon,26,113,19,"Snake Glare, Tempest Slash, Endure(27), Heat Wave(28), Orb of Resolve(29), Null Panic(30)",,Tempest Slash,Physical_B
@@ -80,7 +80,7 @@ Leanan Sidhe,Lovers,35,69,42,"Faerie's Vigil, Bufula, Heroic Wind(36), Renewal A
 Dominion,Justice,35,100,30,"Light Wall, Holy Touch, Mediarama(36), Hamaon(37), Judgment Sword(38), Healing Hand(39)",,Holy Touch,Light_C
 Genbu,Temperance,35,152,20,"Hailstorm, Marakukaja, Eternal Melody(36), Body Shield(37), Heroic Wind(38), Farsight(39)",,Eternal Melody,Light_B
 Orthrus,Hanged,36,140,19,"Scorching Blast, Heat Wave, Flame Link(37), Matarukaja(38), Forked Spear(39), First Star(40)",,Scorching Blast,Fire_B
-Parvati,Priestess,37,81,42,"Absorb Elec, Zionga, Me Patra(38), Alleys of Light(39), Elec Boost(40), Mazionga(41), Return from Yomi(42)",,Alleys of Light,Lightning_C
+Parvati,Priestess,37,81,42,"Absorb Elec, Zionga, Me Patra(38), Alleys of Light(39), Elec Boost(40), Mazionga(41), Return From Yomi(42)",,Alleys of Light,Lightning_C
 Kikurihime,Star,37,75,41,"Agilao, Mediarama, Life Aid(38), Me Patra(39), Maragion(40), Fire Boost(41), Fire Wall(42)",,Mediarama,Fire_D
 Oumitsunu,Chariot,38,140,20,"Body Shield, Lightning Smash, Swordbreaker(39), Heavy Shot(40), Colossal Swing(41), Null S-Bind(42), Demon's Bash(43)",,Lightning Smash,Physical_A
 Samael,Death,38,100,28,"Marakunda, Megido, Silence Circle(39), Binding Hands(40), Punishment(41), Resist Dark(42)",,Silence Circle,Light_A
@@ -100,7 +100,7 @@ Throne,Justice,43,89,44,"Maragion, Renewal Aura, Holy Touch(44), Resist Fire(45)
 Triglav,Chariot,44,140,29,"Aeon Rain, Raging Fists, Dragon Cry(45), Masukunda(46), Gigantic Fist(47), Power Charge(48)",,Aeon Rain,Magic_B
 Lilith,Devil,44,87,48,"Lullaby Song, Resist Dark, Impure Reach(45), Mamudoon(46), Salome's Kiss(47), Stagnant Air(48)",,Lullaby Song,
 Rangda,Magician,45,121,28,"Immunity Buffer, Heavy Shot, Death Counter(46), Pain-Eater(47), Life Wall(48), Pain Watcher(49), Bloody Vanguard(50)",,Heavy Shot,Magic_A
-Yatsufusa,Hanged,45,97,44,"Null M-Bind, Nuclear Blast, Flame Link(46), Double Link(47), Brain Shake(48), Golden Link(49), Return from Yomi(50)",,Flame Link,Fire_A
+Yatsufusa,Hanged,45,97,44,"Null M-Bind, Nuclear Blast, Flame Link(46), Double Link(47), Brain Shake(48), Golden Link(49), Return From Yomi(50)",,Flame Link,Fire_A
 Girimehkala,Moon,45,130,22,"Immunity Buffer, Zanshinken, Life Wall(46), Pain-Eater(47), Revenge Blow(48), Pain Watcher(49)",,Zanshinken,Physical_A
 Pabilsag,Emperor,46,150,23,"Lethargy Circle, Lightning Smash, Binding Hands(47), Sonic Punch(48), Null Sleep(49), Stardrop(50)",,Lethargy Circle,Dark_B
 Black Frost,Fool,47,121,41,"Absorb Fire, Agidyne, Icy Paradise(48), Absorb Ice(49), Trick Step(50), Fire Amp(51), Ice Amp(52)",,Agidyne,
@@ -151,7 +151,7 @@ Tzitzimitl,Priestess,64,100,55,"Salome's Kiss, Mudoon, Maziodyne(65), Magarudyne
 Melchizedek,Justice,64,121,40,"Null Paralysis, Photon Edge, Warrior Title(65), Marakukaja(66), Matarukaja(67), Masukukaja(68), Judgment Sword(69)",,Warrior Title,Light_A
 Trumpeter,Judgement,64,121,49,"Mahamaon, Megidola, Angelic Trumpet(65), Matarunda(66), Dekaja(67), Dekunda(68), Resist Light(69)",,Mahamaon,Light_C
 Lakshmi,Empress,65,92,58,"Renewal Aura, Purifying Rain, Diarahan(66), Mediarahan(67), Healing Hand(68), Yomi Return(69), Samarecarm(70)",,Mediarahan,Magic_C
-Barong,Emperor,65,160,36,"Elec Boost, Ziodyne, Return from Yomi(66), Thunder Smash(67), Elec Amp(68), Resist Elec(69), Eternal Melody(70)",,Return From Yomi,Lightning_C
+Barong,Emperor,65,160,36,"Elec Boost, Ziodyne, Return From Yomi(66), Thunder Smash(67), Elec Amp(68), Resist Elec(69), Eternal Melody(70)",,Return From Yomi,Lightning_C
 Suparna,Sun,65,121,40,"Null A-Bind, Kamikaze Strike, Death Chaser(66), Garudyne(67), Wind Amp(68), Magarudyne(69), First Star(70)",,Death Chaser,Wind_C
 Atavaka,Chariot,66,184,38,"Shura Tensei, End Shot, Shura Revert(67), Silent Thrust(68), Mind's Eye(69), Roads of Light(70), God's Stab(71), God's Cut(72)",,Shura Revert,Lightning_A
 Norn,Fortune,66,100,60,"Runic Shield, Garudyne, Bufudyne(67), Ziodyne(68), Agidyne(69), Diarahan(70), Mediarahan(71), Samarecarm(72)",,Diarahan,

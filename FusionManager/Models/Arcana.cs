@@ -28,6 +28,7 @@ namespace FusionManager.Models
         Star,
         Moon,
         Sun,
-        Judgement
+        Judgement,
+        None
     }
 }

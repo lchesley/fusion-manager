@@ -26,7 +26,15 @@ namespace FusionManager.Models
 
         public Persona GetPersonaByPersonaName(string name)
         {
-            return personaList.Where(o => o.Name == name).FirstOrDefault();
+            try
+            { 
+                return personaList.Where(o => o.Name == name).Single();
+            }
+            catch (Exception ex)
+            {
+                throw new KeyNotFoundException(String.Format("No persona named {0} exists", name), ex);
+            }
+
         }
 
         protected List<Persona> BuildPersonaList(StreamReader reader)
