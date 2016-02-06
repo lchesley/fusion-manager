@@ -42,5 +42,23 @@ namespace FusionManager.Models
                 return temp.Remove(temp.Length - 2);
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            Persona item = obj as Persona;
+            if (item == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Name.Equals(item.Name) && SkillsList.Equals(item.SkillsList);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

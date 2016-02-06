@@ -3,12 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FusionManager.Models
 {
-    public class SkillModel
+    public class SkillModel : ISkillModel
     {
         List<Skill> skillList;
 
@@ -20,6 +18,40 @@ namespace FusionManager.Models
         public List<Skill> GetSkillList()
         {
             return skillList;
+        }
+
+        public List<LearnedSkill> GetLearnedSkillsFromSkillList(string skillList)
+        {
+            List<LearnedSkill> list = new List<LearnedSkill>();
+
+            char[] delimiterChars = { ',' };
+            string[] skills = skillList.Split(delimiterChars);
+
+            foreach (string s in skills)
+            {
+                LearnedSkill item = new LearnedSkill();
+                int firstBracket = s.IndexOf("(");
+                int secondBracket = s.IndexOf(")");
+                if (firstBracket > 0)
+                {
+                    item.LevelLearned = Convert.ToInt32(s.Substring(firstBracket + 1, (secondBracket - (firstBracket + 1))));
+                    item.Skill = GetSkillBySkillName(s.Remove(firstBracket).Trim());
+                }
+                else
+                {
+                    item.LevelLearned = 1;
+                    item.Skill = GetSkillBySkillName(s.Trim());
+                }
+
+                list.Add(item);
+            }
+
+            return list;
+        }
+
+        public Skill GetSkillBySkillName(string skillName)
+        {            
+            return skillList.Where(o => o.Name == skillName).FirstOrDefault();            
         }
 
         protected List<Skill> BuildSkillList(StreamReader reader)
@@ -43,6 +75,6 @@ namespace FusionManager.Models
             }
 
             return list;
-        }
+        }        
     }
 }

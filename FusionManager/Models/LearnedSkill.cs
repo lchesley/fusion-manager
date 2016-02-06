@@ -10,5 +10,23 @@ namespace FusionManager.Models
     {
         public Skill Skill { get; set; }
         public int LevelLearned { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            LearnedSkill item = obj as LearnedSkill;
+            if (item == null)
+            {
+                return false;
+            }
+            else
+            {                
+                return LevelLearned.Equals(item.LevelLearned) && Skill.Equals(item.Skill);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Skill.GetHashCode();
+        }
     }
 }

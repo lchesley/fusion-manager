@@ -9,14 +9,19 @@ namespace FusionManager.Tests.Models
     [TestClass]
     public class PersonaModelTests
     {
-        PersonaModel model;
+        IPersonaModel model;
+        ISkillModel skillModel;
+        IInheritanceModel inheritanceModel;
 
         [TestInitialize]
         [DeploymentItem(@"App_Data\", @"App_Data\")]
         public void Initialize()
         {
             StreamReader reader = new StreamReader("App_Data\\FusionGuide.csv");
-            model = new PersonaModel(reader);
+            StreamReader skillsReader = new StreamReader("App_Data\\SkillList.csv");
+            skillModel = new SkillModel(skillsReader);
+            inheritanceModel = new InheritanceModel();
+            model = new PersonaModel(reader, skillModel, inheritanceModel);
         }
 
         [TestMethod]
@@ -46,6 +51,47 @@ namespace FusionManager.Tests.Models
             CollectionAssert.AllItemsAreNotNull(result);
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Persona));
             CollectionAssert.AllItemsAreUnique(result);
+        }
+
+        [TestMethod]
+        public void GetPersonaByPersonaName()
+        {
+            //Arrange                
+            string name = "Ukobach";
+
+            //Act
+            var result = model.GetPersonaByPersonaName(name);
+
+            //Assert            
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(Persona));
+        }
+
+        [TestMethod]
+        public void GetPersonaByPersonaName_GetActualPersonaByPersonaName()
+        {            
+            //Arrange                
+            string name = "Ukobach";
+            Persona expected = new Persona
+            {
+                Arcana = Arcana.Devil,
+                ExtractedSkill = skillModel.GetSkillBySkillName("Panic Circle"),
+                HPIncrease = 22,
+                InheritableSkillTypes = inheritanceModel.GetSkillInheritanceByPersonaInheritanceType(PersonaInheritanceType.Any),
+                InheritanceType = PersonaInheritanceType.Any,
+                InitialLevel = 4,
+                IsDownloadedContent = false,
+                LearnedSkills = skillModel.GetLearnedSkillsFromSkillList("Pulinpa, Agi, Lullaby Song(5), Panic Circle(6), Evil Touch(7)"),
+                Name = "Ukobach",
+                SPIncrease = 14
+            };
+
+            //Act
+            var result = model.GetPersonaByPersonaName(name);
+
+            //Assert            
+            Assert.AreEqual(expected, result);
+            Assert.IsInstanceOfType(result, typeof(Persona));
         }
     }
 }

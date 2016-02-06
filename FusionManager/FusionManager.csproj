@@ -156,7 +156,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Arcana.cs" />
+    <Compile Include="Models\IInheritanceModel.cs" />
+    <Compile Include="Models\InheritanceModel.cs" />
+    <Compile Include="Models\IPersonaModel.cs" />
     <Compile Include="Models\IPersonaRepository.cs" />
+    <Compile Include="Models\ISkillModel.cs" />
     <Compile Include="Models\LearnedSkill.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\PersonaInheritanceType.cs" />
