@@ -157,7 +157,9 @@
     </Compile>
     <Compile Include="Models\Arcana.cs" />
     <Compile Include="Models\FusionArcanaModel.cs" />
+    <Compile Include="Models\FusionModel.cs" />
     <Compile Include="Models\IFusionArcanaModel.cs" />
+    <Compile Include="Models\IFusionModel.cs" />
     <Compile Include="Models\IInheritanceModel.cs" />
     <Compile Include="Models\InheritanceModel.cs" />
     <Compile Include="Models\IPersonaModel.cs" />

@@ -55,6 +55,30 @@ namespace FusionManager.Tests.Models
         }
 
         [TestMethod]
+        public void GetPersonaList_GetListByArcana()
+        {
+            //Arrange                
+            Arcana arcana = Arcana.Fortune;
+            List<Persona> expected = new List<Persona>();
+            expected.Add(model.GetPersonaByPersonaName("Empusa"));
+            expected.Add(model.GetPersonaByPersonaName("Fortuna"));
+            expected.Add(model.GetPersonaByPersonaName("Clotho"));
+            expected.Add(model.GetPersonaByPersonaName("Lachesis"));
+            expected.Add(model.GetPersonaByPersonaName("Ananta"));
+            expected.Add(model.GetPersonaByPersonaName("Atropos"));
+            expected.Add(model.GetPersonaByPersonaName("Norn"));
+
+            //Act
+            var result = model.GetPersonaList(arcana);
+
+            //Assert
+            Assert.IsNotNull(result);
+            CollectionAssert.AllItemsAreNotNull(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Persona));
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void GetPersonaByPersonaName()
         {
             //Arrange                

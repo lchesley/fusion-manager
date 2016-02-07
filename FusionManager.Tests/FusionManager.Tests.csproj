@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Mocks\MockPersonaRepository.cs" />
     <Compile Include="Models\FusionArcanaModelTests.cs" />
+    <Compile Include="Models\FusionModelTests.cs" />
     <Compile Include="Models\InheritanceModelTests.cs" />
     <Compile Include="Models\PersonaModelTests.cs" />
     <Compile Include="Models\SkillModelTests.cs" />

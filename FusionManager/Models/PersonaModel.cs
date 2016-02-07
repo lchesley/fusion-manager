@@ -21,7 +21,12 @@ namespace FusionManager.Models
 
         public List<Persona> GetPersonaList()
         {
-            return personaList;
+            return personaList.OrderBy(o => o.InitialLevel).ToList<Persona>();
+        }
+
+        public List<Persona> GetPersonaList(Arcana arcana)
+        {
+            return GetPersonaList().Where(o => o.Arcana == arcana).OrderBy(o => o.InitialLevel).ToList<Persona>();
         }
 
         public Persona GetPersonaByPersonaName(string name)

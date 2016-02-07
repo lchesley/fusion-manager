@@ -90,9 +90,33 @@ namespace FusionManager.Models
             return doubleFusion[(int)first, (int)second];
         }
 
-        public List<Arcana[,]> GetDoubleFusionParametersByArcana(Arcana desiredResult)
+        public List<Tuple<Arcana, Arcana>> GetDoubleFusionParametersByArcana(Arcana desiredResult)
         {
-            throw new NotImplementedException();
+            List<Tuple<Arcana,Arcana>> combinations = new List<Tuple<Arcana, Arcana>>();
+
+            var rowLowerLimit = doubleFusion.GetLowerBound(0);
+            var rowUpperLimit = doubleFusion.GetUpperBound(0);
+
+            var colLowerLimit = doubleFusion.GetLowerBound(1);
+            var colUpperLimit = doubleFusion.GetUpperBound(1);
+
+            for (int row = rowLowerLimit; row <= rowUpperLimit; row++)
+            {
+                for (int col = colLowerLimit; col <= colUpperLimit; col++)
+                {
+                    if (doubleFusion[row, col] == desiredResult)
+                    {
+                        Tuple<Arcana,Arcana> item = new Tuple<Arcana, Arcana>((Arcana)row, (Arcana)col);
+
+                        if (!(item.Item1 == desiredResult || item.Item2 == desiredResult))
+                        {
+                            combinations.Add(item);
+                        }
+                    }
+                }
+            }
+
+            return combinations;
         }
 
         #endregion
@@ -104,9 +128,33 @@ namespace FusionManager.Models
             return tripleFusion[(int)first, (int)second];
         }
 
-        public List<Arcana[,]> GetTripleFusionParametersByArcana(Arcana desiredResult)
+        public List<Tuple<Arcana, Arcana>> GetTripleFusionParametersByArcana(Arcana desiredResult)
         {
-            throw new NotImplementedException();
+            List<Tuple<Arcana, Arcana>> combinations = new List<Tuple<Arcana, Arcana>>();
+
+            var rowLowerLimit = tripleFusion.GetLowerBound(0);
+            var rowUpperLimit = tripleFusion.GetUpperBound(0);
+
+            var colLowerLimit = tripleFusion.GetLowerBound(1);
+            var colUpperLimit = tripleFusion.GetUpperBound(1);
+
+            for (int row = rowLowerLimit; row <= rowUpperLimit; row++)
+            {
+                for (int col = colLowerLimit; col <= colUpperLimit; col++)
+                {
+                    if (tripleFusion[row, col] == desiredResult)
+                    {
+                        Tuple<Arcana, Arcana> item = new Tuple<Arcana, Arcana>((Arcana)row, (Arcana)col);
+
+                        if (!(item.Item1 == desiredResult || item.Item2 == desiredResult))
+                        {
+                            combinations.Add(item);
+                        }
+                    }
+                }
+            }
+
+            return combinations;
         }
 
         #endregion

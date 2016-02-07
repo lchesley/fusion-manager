@@ -49,6 +49,40 @@ namespace FusionManager.Tests.Models
         }
 
         [TestMethod]
+        public void GetDoubleFusionParametersByArcana()
+        {
+            //Arrange
+            Arcana first = Arcana.Death;
+            int expectedCount = 11;            
+
+            //Act
+            var result = model.GetDoubleFusionParametersByArcana(first);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expectedCount, result.Count);
+            CollectionAssert.AllItemsAreUnique(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Tuple<Arcana,Arcana>));            
+        }
+
+        [TestMethod]
+        public void GetDoubleFusionParametersByArcana_CheckReturnsNoResultOnSelfOnlyFusion()
+        {
+            //Arrange
+            Arcana first = Arcana.Fool;
+            List<Tuple<Arcana, Arcana>> expected = new List<Tuple<Arcana, Arcana>>();
+
+            //Act
+            var result = model.GetDoubleFusionParametersByArcana(first);
+
+            //Assert
+            Assert.IsNotNull(result);
+            CollectionAssert.AllItemsAreUnique(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Tuple<Arcana, Arcana>));
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
         public void GetTripleFusionArcana()
         {
             //Arrange
@@ -78,6 +112,23 @@ namespace FusionManager.Tests.Models
             Assert.AreEqual(expected, result);
             Assert.IsInstanceOfType(result, typeof(Arcana));
         }
+
+        [TestMethod]
+        public void GetTripleFusionParametersByArcana()
+        {
+            //Arrange
+            Arcana first = Arcana.Death;
+            int expectedCount = 9;
+
+            //Act
+            var result = model.GetTripleFusionParametersByArcana(first);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expectedCount, result.Count);
+            CollectionAssert.AllItemsAreUnique(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Tuple<Arcana, Arcana>));
+        }        
 
         [TestMethod]
         public void OnlyAvailableThroughSpecialFusion_CheckIsTrue()
