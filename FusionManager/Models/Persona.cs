@@ -43,6 +43,14 @@ namespace FusionManager.Models
             }
         }
 
+        public int ActualLevel
+        {
+            get
+            {
+                return InitialLevel;
+            }
+        }
+
         public override bool Equals(object obj)
         {
             Persona item = obj as Persona;

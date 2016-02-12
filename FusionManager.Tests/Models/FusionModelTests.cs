@@ -93,6 +93,42 @@ namespace FusionManager.Tests.Models
         }
 
         [TestMethod]
+        public void FusePersonaDouble_CheckDifferentArcanaFusion()
+        {
+            //Arrange            
+            Persona first = personaModel.GetPersonaByPersonaName("Neko Shogun");
+            Persona second = personaModel.GetPersonaByPersonaName("Hua Po");
+
+            Persona expected = personaModel.GetPersonaByPersonaName("Turdak");
+
+            //Act
+            var result = model.FusePersona(first, second);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expected, result);
+            Assert.IsInstanceOfType(result, typeof(Persona));
+        }
+
+        [TestMethod]
+        public void FusePersonaDouble_CheckDifferentArcanaFusion_LowLevel()
+        {
+            //Arrange            
+            Persona first = personaModel.GetPersonaByPersonaName("Anzu");
+            Persona second = personaModel.GetPersonaByPersonaName("Pixie");
+
+            Persona expected = personaModel.GetPersonaByPersonaName("Sandman");
+
+            //Act
+            var result = model.FusePersona(first, second);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expected, result);
+            Assert.IsInstanceOfType(result, typeof(Persona));
+        }
+
+        [TestMethod]
         public void FusePersonaTriple()
         {
             //Arrange
@@ -125,7 +161,23 @@ namespace FusionManager.Tests.Models
         }
 
         [TestMethod]
-        public void FusePersonaTriple_CheckSpecialDoubleFusionReturned()
+        [ExpectedException(typeof(ArgumentException))]
+        public void FusePersonaTriple_PersonaCannotBeFusedToItself_AfterInitialStep()
+        {
+            //Arrange
+            Persona first = personaModel.GetPersonaByPersonaName("Neko Shogun");
+            Persona second = personaModel.GetPersonaByPersonaName("Hua Po");
+            Persona third = personaModel.GetPersonaByPersonaName("Turdak");
+
+            //Act
+            var result = model.FusePersona(first, second, third);
+
+            //Assert
+
+        }
+
+        [TestMethod]
+        public void FusePersonaTriple_CheckSpecialTripleFusionReturned()
         {
             //Arrange
             Persona first = personaModel.GetPersonaByPersonaName("White Rider");
@@ -159,6 +211,54 @@ namespace FusionManager.Tests.Models
             Assert.IsNotNull(result);
             Assert.AreEqual(expected, result);
             Assert.IsInstanceOfType(result, typeof(Persona));
+        }
+
+        [TestMethod]
+        public void FusePersonaTriple_CheckDifferentArcanaFusion()
+        {
+            //Arrange            
+            Persona first = personaModel.GetPersonaByPersonaName("Nue");
+            Persona second = personaModel.GetPersonaByPersonaName("Eligor");
+            Persona third = personaModel.GetPersonaByPersonaName("Turdak");
+
+            Persona expected = personaModel.GetPersonaByPersonaName("Mithra");
+
+            //Act
+            var result = model.FusePersona(first, second, third);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expected, result);
+            Assert.IsInstanceOfType(result, typeof(Persona));
+        }
+
+        [TestMethod]
+        public void FusionSearch_ByArcana()
+        {
+            //Arrange
+            Arcana desiredArcana = Arcana.Fool;
+
+            //Act
+            var result = model.FusionSearch(desiredArcana);
+
+            //Assert
+            Assert.IsNotNull(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(string[]));
+        }
+
+        [TestMethod]
+        public void FusionSearch_ByArcana_CheckActualResult()
+        {
+            //Arrange
+            Arcana desiredArcana = Arcana.Death;
+            
+
+            //Act
+            var result = model.FusionSearch(desiredArcana);
+
+            //Assert
+            Assert.IsNotNull(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(string[]));
         }
     }
 }

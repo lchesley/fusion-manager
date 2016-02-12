@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FusionManager.Models
 {
@@ -7,5 +8,6 @@ namespace FusionManager.Models
         List<Persona> GetPersonaList();
         List<Persona> GetPersonaList(Arcana arcana);
         Persona GetPersonaByPersonaName(string name);
+        Tuple<Persona, Persona> GetNextLowestAndNextHighestPersonaByArcana(Arcana arcana, double targetLevel);
     }
 }

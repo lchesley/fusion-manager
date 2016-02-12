@@ -131,5 +131,39 @@ namespace FusionManager.Tests.Models
 
             //Assert                        
         }
+
+        [TestMethod]
+        public void GetNextLowestAndNextHighestPersonaByArcana()
+        {
+            //Arrange                
+            Arcana arcana = Arcana.Fool;
+            double baseLevel = 1;
+
+            //Act
+            var result = model.GetNextLowestAndNextHighestPersonaByArcana(arcana, baseLevel);
+
+            //Assert            
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(Tuple<Persona, Persona>));
+        }
+
+        [TestMethod]
+        public void GetNextLowestAndNextHighestPersonaByArcana_CheckActualResult()
+        {
+            //Arrange                
+            Arcana arcana = Arcana.Fool;
+            double baseLevel = 20;
+            Tuple<Persona, Persona> expected = new Tuple<Persona, Persona>(model.GetPersonaByPersonaName("Slime"), model.GetPersonaByPersonaName("Legion"));
+
+            //Act
+            var result = model.GetNextLowestAndNextHighestPersonaByArcana(arcana, baseLevel);
+
+            //Assert            
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(Tuple<Persona, Persona>));
+            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected.Item1, result.Item1);
+            Assert.AreEqual(expected.Item2, result.Item2);
+        }
     }
 }

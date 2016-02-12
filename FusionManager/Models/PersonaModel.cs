@@ -21,12 +21,12 @@ namespace FusionManager.Models
 
         public List<Persona> GetPersonaList()
         {
-            return personaList.OrderBy(o => o.InitialLevel).ToList<Persona>();
+            return personaList.OrderBy(o => o.ActualLevel).ToList<Persona>();
         }
 
         public List<Persona> GetPersonaList(Arcana arcana)
         {
-            return GetPersonaList().Where(o => o.Arcana == arcana).OrderBy(o => o.InitialLevel).ToList<Persona>();
+            return GetPersonaList().Where(o => o.Arcana == arcana).OrderBy(o => o.ActualLevel).ToList<Persona>();
         }
 
         public Persona GetPersonaByPersonaName(string name)
@@ -40,6 +40,28 @@ namespace FusionManager.Models
                 throw new KeyNotFoundException(String.Format("No persona named {0} exists", name), ex);
             }
 
+        }
+
+        public Tuple<Persona, Persona> GetNextLowestAndNextHighestPersonaByArcana(Arcana arcana, double targetLevel)
+        {
+            Persona lower = new Persona();
+            Persona higher = new Persona();
+
+            lower = GetPersonaList(arcana).Where(o => o.ActualLevel <= targetLevel).OrderByDescending(o => o.ActualLevel).FirstOrDefault();
+            if (lower == null)
+            {
+                lower = GetPersonaList(arcana).OrderBy(o => o.ActualLevel).FirstOrDefault();
+            }
+
+            higher = GetPersonaList(arcana).Where(o => o.ActualLevel >= targetLevel).OrderBy(o => o.ActualLevel).FirstOrDefault();
+            if (higher == null)
+            {
+                higher = GetPersonaList(arcana).OrderByDescending(o => o.ActualLevel).FirstOrDefault();
+            }
+
+            Tuple<Persona, Persona> result = new Tuple<Persona, Persona>(lower, higher);
+
+            return result;
         }
 
         protected List<Persona> BuildPersonaList(StreamReader reader)
