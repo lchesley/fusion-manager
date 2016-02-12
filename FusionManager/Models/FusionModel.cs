@@ -141,9 +141,15 @@ namespace FusionManager.Models
 
         #region Fusion Search
 
-        public List<string[]> FusionSearch(Arcana desiredArcana)
+        public List<Tuple<Arcana, Arcana>> FusionSearch(Arcana desiredArcana)
         {
-            throw new NotImplementedException();
+            List<Tuple<Arcana, Arcana>> combinations = new List<Tuple<Arcana, Arcana>>();
+
+            combinations.AddRange(fusionArcanaModel.GetDoubleFusionParametersByArcana(desiredArcana));
+
+            combinations.AddRange(fusionArcanaModel.GetTripleFusionParametersByArcana(desiredArcana));
+
+            return combinations;
         }
 
         public List<string[]> FusionSearch(Persona desiredPersona)

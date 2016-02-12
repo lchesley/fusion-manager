@@ -243,7 +243,7 @@ namespace FusionManager.Tests.Models
 
             //Assert
             Assert.IsNotNull(result);
-            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(string[]));
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Tuple<Arcana,Arcana>));
         }
 
         [TestMethod]
@@ -251,14 +251,15 @@ namespace FusionManager.Tests.Models
         {
             //Arrange
             Arcana desiredArcana = Arcana.Death;
-            
+            int expectedResults = 20;
 
             //Act
             var result = model.FusionSearch(desiredArcana);
 
             //Assert
             Assert.IsNotNull(result);
-            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(string[]));
+            Assert.AreEqual(expectedResults, result.Count);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Tuple<Arcana,Arcana>));
         }
     }
 }

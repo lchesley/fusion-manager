@@ -10,7 +10,7 @@ namespace FusionManager.Models
     {
         Persona FusePersona(Persona first, Persona second);
         Persona FusePersona(Persona first, Persona second, Persona third);
-        List<string[]> FusionSearch(Arcana desiredArcana);
+        List<Tuple<Arcana,Arcana>> FusionSearch(Arcana desiredArcana);
         List<string[]> FusionSearch(Persona desiredPersona);
         List<string[]> FusionSearch(Persona desiredPersona, Persona firstRequredPersona);
         List<string[]> FusionSearch(Persona desiredPersona, Persona firstRequredPersona, Persona secondRequiredPersona);
