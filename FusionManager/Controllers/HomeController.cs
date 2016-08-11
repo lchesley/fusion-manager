@@ -18,7 +18,8 @@ namespace FusionManager.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var personaList = repository.GetPersonaList();
+            return View(personaList);
         }
 
         public ActionResult About()

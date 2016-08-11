@@ -90,6 +90,7 @@
     <Compile Include="Models\InheritanceModelTests.cs" />
     <Compile Include="Models\PersonaModelTests.cs" />
     <Compile Include="Models\SkillModelTests.cs" />
+    <Compile Include="Models\PersonaRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
