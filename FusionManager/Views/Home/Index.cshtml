@@ -4,63 +4,36 @@
     ViewBag.Title = "Persona Listing";
 }
 
-<h2>View</h2>
+<div class="card-deck-wrapper">
+    <div class="card-deck">
+        @foreach (var item in Model)
+        {
+            <div class="card card-block">
+                
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+            
+                <p class="card-text">
+                    @Html.DisplayFor(modelItem => item.InitialLevel)
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InitialLevel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HPIncrease)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SPIncrease)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDownloadedContent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SkillsList)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ActualLevel)
-        </th>
-        <th></th>
-    </tr>
+                @Html.DisplayFor(modelItem => item.HPIncrease)
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InitialLevel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HPIncrease)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SPIncrease)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDownloadedContent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SkillsList)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ActualLevel)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+                @Html.DisplayFor(modelItem => item.SPIncrease)
 
-</table>
+                @Html.DisplayFor(modelItem => item.IsDownloadedContent)
+                </p>
+            
+                @Html.DisplayFor(modelItem => item.SkillsList)
+            
+                @Html.DisplayFor(modelItem => item.ActualLevel)
+            
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })            
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
