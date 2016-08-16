@@ -4,34 +4,25 @@
     ViewBag.Title = "Persona Listing";
 }
 
-<div class="card-deck-wrapper">
-    <div class="card-deck">
+<div class="card-columns">    
         @foreach (var item in Model)
         {
-            <div class="card card-block">
-                
-                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
-            
-                <p class="card-text">
-                    @Html.DisplayFor(modelItem => item.InitialLevel)
-
-                @Html.DisplayFor(modelItem => item.HPIncrease)
-
-                @Html.DisplayFor(modelItem => item.SPIncrease)
-
-                @Html.DisplayFor(modelItem => item.IsDownloadedContent)
-                </p>
-            
-                @Html.DisplayFor(modelItem => item.SkillsList)
-            
-                @Html.DisplayFor(modelItem => item.ActualLevel)
-            
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })            
+            <div class="card">
+                <div class="card-header">
+                    <h3>@item.Name (@item.InitialLevel)</h3>
+                </div>
+                <div class="card-content">
+                    <span class="h5">@item.Arcana</span>                                            
+                    <span class="h6 pull-right">+@item.HPIncrease HP +@item.SPIncrease SP</span>
+                </div>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.SkillsList)
+                    </p>                    
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })                
             </div>
-        }
-    </div>
+        }    
 </div>
 
 
