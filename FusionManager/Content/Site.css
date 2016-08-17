@@ -22,3 +22,44 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.Physical_A, .Physical_B {
+    background-color : brown;
+    border-color : black;
+}
+
+.Magic_A, .Magic_B, .Magic_C, .Magic_D {
+    background-color : blueviolet;
+    border-color : black;
+}
+       
+.Fire_A, .Fire_B, .Fire_C, .Fire_D {
+    background-color : red;
+    border-color : black;
+}
+
+.Ice_A, .Ice_B, .Ice_C, .Ice_D {
+    background-color : lightblue;
+    border-color : black;
+}
+        
+.Lightning_A, .Lightning_B, .Lightning_C, .Lightning_D {
+    background-color : gold;
+    border-color : black;
+}
+        
+.Wind_A, .Wind_B, .Wind_C, .Wind_D {
+    background-color : forestgreen;
+    border-color : black;
+}
+        
+.Light_A, .Light_B, .Light_C, .Light_D {
+    background-color : ivory;
+    border-color : black;
+}
+        
+.Dark_A, .Dark_B, .Dark_C, .Dark_D {
+    background-color : black;
+    color : white;
+    border-color : black;
+}

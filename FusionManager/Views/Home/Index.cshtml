@@ -3,17 +3,16 @@
 @{
     ViewBag.Title = "Persona Listing";
 }
-
+<h3>Persona Listing</h3>
 <div class="card-columns">    
         @foreach (var item in Model)
         {
             <div class="card">
-                <div class="card-header">
-                    <h3>@item.Name (@item.InitialLevel)</h3>
+                <div class="card-header @item.InheritanceType.ToString()">
+                    <span class="h4">@item.Name (@item.InitialLevel)</span><span class="h6 pull-right">+@item.HPIncrease HP +@item.SPIncrease SP</span>
                 </div>
                 <div class="card-content">
-                    <span class="h5">@item.Arcana</span>                                            
-                    <span class="h6 pull-right">+@item.HPIncrease HP +@item.SPIncrease SP</span>
+                    <span class="h5">@item.Arcana</span>                                                                
                 </div>
                     <p>
                         @Html.DisplayFor(modelItem => item.SkillsList)
