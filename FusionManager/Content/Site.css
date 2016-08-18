@@ -23,43 +23,86 @@ textarea {
     max-width: 280px;
 }
 
-.Physical_A, .Physical_B {
-    background-color : brown;
+.Physical_A, .Physical_B, .Ph {
+    background-color : #996633;
     border-color : black;
+    color : black;
 }
 
 .Magic_A, .Magic_B, .Magic_C, .Magic_D {
-    background-color : blueviolet;
+    background-color : #a64dff;
     border-color : black;
+    color : black;
 }
        
-.Fire_A, .Fire_B, .Fire_C, .Fire_D {
-    background-color : red;
+.Fire_A, .Fire_B, .Fire_C, .Fire_D, .F {
+    background-color : #ff8533;
     border-color : black;
+    color : black;
 }
 
-.Ice_A, .Ice_B, .Ice_C, .Ice_D {
-    background-color : lightblue;
+.Ice_A, .Ice_B, .Ice_C, .Ice_D, .I {
+    background-color : #99ddff;
     border-color : black;
+    color : black;
 }
         
-.Lightning_A, .Lightning_B, .Lightning_C, .Lightning_D {
-    background-color : gold;
+.Lightning_A, .Lightning_B, .Lightning_C, .Lightning_D, .E {
+    background-color : #ffd633;
     border-color : black;
+    color : black;
 }
         
-.Wind_A, .Wind_B, .Wind_C, .Wind_D {
-    background-color : forestgreen;
+.Wind_A, .Wind_B, .Wind_C, .Wind_D, .W {
+    background-color : #33cc33;
     border-color : black;
+    color : black;
 }
         
-.Light_A, .Light_B, .Light_C, .Light_D {
-    background-color : ivory;
+.Light_A, .Light_B, .Light_C, .Light_D, .L {
+    background-color : #ffff99;
     border-color : black;
+    color : black;
 }
         
-.Dark_A, .Dark_B, .Dark_C, .Dark_D {
+.Dark_A, .Dark_B, .Dark_C, .Dark_D, .D {
     background-color : black;
     color : white;
     border-color : black;
+}
+
+.St {
+    background-color : #ccff33;
+    border-color : black;
+    color : black;
+}
+
+.R {
+    background-color : #004d00;
+    border-color : black;
+    color : White;
+}
+
+.Su {
+    background-color : #00cca3;
+    border-color : black;
+    color : black;
+}
+
+.N {
+    background-color : #ff66cc;
+    border-color : black;
+    color : black;
+}
+
+.P {
+    background-color : #b3b3ff;
+    border-color : black;
+    color : black;
+}
+
+.A {
+    background-color : White;
+    border : 1px solid black;
+    color : black;
 }

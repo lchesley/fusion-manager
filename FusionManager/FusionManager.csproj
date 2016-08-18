@@ -155,6 +155,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers.cs" />
     <Compile Include="Models\Arcana.cs" />
     <Compile Include="Models\FusionArcanaModel.cs" />
     <Compile Include="Models\FusionModel.cs" />
