@@ -16,15 +16,18 @@ namespace FusionManager.Tests.Mocks
         ISkillModel skillModel;
         IInheritanceModel inheritanceModel;
         IFusionArcanaModel fusionArcanaModel;
+        ICompendiumModel compendiumModel;
 
         public MockPersonaRepository()
         {
             fusionArcanaModel = new FusionArcanaModel();
             StreamReader fusionReader = new StreamReader("App_Data\\FusionGuide.csv");
             StreamReader skillsReader = new StreamReader("App_Data\\SkillList.csv");
+            StreamReader compendiumReader = new StreamReader("App_Data\\Compendium.csv");
             skillModel = new SkillModel(skillsReader);
             inheritanceModel = new InheritanceModel();
-            personaModel = new PersonaModel(fusionReader, skillModel, inheritanceModel);
+            compendiumModel = new CompendiumModel(compendiumReader);
+            personaModel = new PersonaModel(fusionReader, skillModel, inheritanceModel, compendiumModel);
             fusionModel = new FusionModel(fusionArcanaModel, personaModel);
         }
 

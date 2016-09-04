@@ -7,5 +7,6 @@ namespace FusionManager.Models
         List<Skill> GetSkillList();
         Skill GetSkillBySkillName(string skillName);        
         List<LearnedSkill> GetLearnedSkillsFromSkillList(string skillList);
+        List<Skill> GetSkillsFromSkillList(string skills);
     }
 }

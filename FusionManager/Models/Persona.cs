@@ -11,10 +11,12 @@ namespace FusionManager.Models
         public string Name { get; set; }
         public Arcana Arcana { get; set; }
         public int InitialLevel { get; set; }
+        public int ActualLevel { get; set; }
         public int HPIncrease { get; set; }
         public int SPIncrease { get; set; }
         public bool IsDownloadedContent { get; set; }
         public List<LearnedSkill> LearnedSkills { get; set; }
+        public List<Skill> InheritedSkills { get; set; }
         public Skill ExtractedSkill { get; set; }
         public PersonaInheritanceType InheritanceType { get; set; }
         public List<SkillInheritance> InheritableSkillTypes { get; set; }
@@ -41,15 +43,7 @@ namespace FusionManager.Models
 
                 return temp.Remove(temp.Length - 2);
             }
-        }
-
-        public int ActualLevel
-        {
-            get
-            {
-                return InitialLevel;
-            }
-        }
+        }        
 
         public override bool Equals(object obj)
         {

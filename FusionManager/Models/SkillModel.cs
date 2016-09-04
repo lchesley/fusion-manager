@@ -49,6 +49,23 @@ namespace FusionManager.Models
             return list;
         }
 
+        public List<Skill> GetSkillsFromSkillList(string skills)
+        {
+            List<Skill> list = new List<Skill>();
+
+            char[] delimiterChars = { ',' };
+            string[] skillList = skills.Split(delimiterChars);
+
+            foreach (string s in skillList)
+            {
+                Skill item = new Skill();
+                item = GetSkillBySkillName(s.Trim());
+                list.Add(item);
+            }
+
+            return list;
+        }
+
         public Skill GetSkillBySkillName(string skillName)
         {
             try

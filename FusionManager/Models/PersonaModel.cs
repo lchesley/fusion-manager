@@ -11,11 +11,13 @@ namespace FusionManager.Models
         List<Persona> personaList;
         ISkillModel skillModel;
         IInheritanceModel inheritanceModel;
+        ICompendiumModel compendiumModel;
 
-        public PersonaModel(StreamReader reader, ISkillModel skillModel, IInheritanceModel inheritanceModel)
+        public PersonaModel(StreamReader reader, ISkillModel skillModel, IInheritanceModel inheritanceModel, ICompendiumModel compendiumModel)
         {
             this.skillModel = skillModel;
             this.inheritanceModel = inheritanceModel;
+            this.compendiumModel = compendiumModel;
             personaList = BuildPersonaList(reader);
         }
 
@@ -67,10 +69,12 @@ namespace FusionManager.Models
         protected List<Persona> BuildPersonaList(StreamReader reader)
         {
             List<Persona> list = new List<Persona>();
+            CompendiumEntry entry = new CompendiumEntry();
 
             using (TextReader textReader = reader)
             {
                 var csv = new CsvReader(textReader);
+                
                 while (csv.Read())
                 {
                     Persona persona = new Persona();
@@ -84,6 +88,16 @@ namespace FusionManager.Models
                     persona.LearnedSkills = skillModel.GetLearnedSkillsFromSkillList(csv.GetField<string>("Skills"));
                     persona.InheritanceType = (csv.GetField<string>("Type") == "") ? PersonaInheritanceType.Any : (PersonaInheritanceType)Enum.Parse(typeof(PersonaInheritanceType), csv.GetField<string>("Type"));
                     persona.InheritableSkillTypes = inheritanceModel.GetSkillInheritanceByPersonaInheritanceType(persona.InheritanceType);
+                    try
+                    {
+                        entry = compendiumModel.GetCompendiumEntryByPersonaName(persona.Name);
+                    }
+                    catch(KeyNotFoundException)
+                    {
+                        entry = null;
+                    }
+                    persona.ActualLevel = entry != null ? entry.ActualLevel : persona.InitialLevel;
+                    persona.InheritedSkills = entry != null ? skillModel.GetSkillsFromSkillList(entry.InheritedSkills) : new List<Skill>();
                     list.Add(persona);
                 }
             }

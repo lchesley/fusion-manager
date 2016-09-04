@@ -15,15 +15,18 @@ namespace FusionManager.Models
         ISkillModel skillModel;
         IInheritanceModel inheritanceModel;
         IFusionArcanaModel fusionArcanaModel;
+        ICompendiumModel compendiumModel;
 
         public PersonaRepository()
         {
             fusionArcanaModel = new FusionArcanaModel();
             StreamReader fusionReader = new StreamReader(HttpContext.Current.Server.MapPath("~/App_Data/FusionGuide.csv"));
             StreamReader skillsReader = new StreamReader(HttpContext.Current.Server.MapPath("~/App_Data/SkillList.csv"));
+            StreamReader compendiumReader = new StreamReader(HttpContext.Current.Server.MapPath("~/App_Data/Compendium.csv"));
             skillModel = new SkillModel(skillsReader);
             inheritanceModel = new InheritanceModel();
-            personaModel = new PersonaModel(fusionReader, skillModel, inheritanceModel);
+            compendiumModel = new CompendiumModel(compendiumReader);
+            personaModel = new PersonaModel(fusionReader, skillModel, inheritanceModel, compendiumModel);
             fusionModel = new FusionModel(fusionArcanaModel, personaModel);
         }
 

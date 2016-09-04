@@ -13,6 +13,7 @@ namespace FusionManager.Tests.Models
         IPersonaModel model;
         ISkillModel skillModel;
         IInheritanceModel inheritanceModel;
+        ICompendiumModel compendiumModel;
 
         [TestInitialize]
         [DeploymentItem(@"App_Data\", @"App_Data\")]
@@ -20,9 +21,11 @@ namespace FusionManager.Tests.Models
         {
             StreamReader reader = new StreamReader("App_Data\\FusionGuide.csv");
             StreamReader skillsReader = new StreamReader("App_Data\\SkillList.csv");
+            StreamReader compendiumReader = new StreamReader("App_Data\\Compendium.csv");
             skillModel = new SkillModel(skillsReader);
             inheritanceModel = new InheritanceModel();
-            model = new PersonaModel(reader, skillModel, inheritanceModel);
+            compendiumModel = new CompendiumModel(compendiumReader);
+            model = new PersonaModel(reader, skillModel, inheritanceModel, compendiumModel);
         }
 
         [TestMethod]
