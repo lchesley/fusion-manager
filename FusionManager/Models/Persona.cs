@@ -16,7 +16,7 @@ namespace FusionManager.Models
         public int SPIncrease { get; set; }
         public bool IsDownloadedContent { get; set; }
         public List<LearnedSkill> LearnedSkills { get; set; }
-        public List<Skill> InheritedSkills { get; set; }
+        public List<Skill> InheritedSkills { get; set; }        
         public Skill ExtractedSkill { get; set; }
         public PersonaInheritanceType InheritanceType { get; set; }
         public List<SkillInheritance> InheritableSkillTypes { get; set; }

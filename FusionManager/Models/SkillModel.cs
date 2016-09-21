@@ -6,6 +6,14 @@ using System.Linq;
 
 namespace FusionManager.Models
 {
+    public interface ISkillModel
+    {
+        List<Skill> GetSkillList();
+        Skill GetSkillBySkillName(string skillName);
+        List<LearnedSkill> GetLearnedSkillsFromSkillList(string skillList);
+        List<Skill> GetSkillsFromSkillList(string skills);
+    }
+
     public class SkillModel : ISkillModel
     {
         List<Skill> skillList;

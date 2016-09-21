@@ -161,14 +161,7 @@
     <Compile Include="Models\CompendiumModel.cs" />
     <Compile Include="Models\FusionArcanaModel.cs" />
     <Compile Include="Models\FusionModel.cs" />
-    <Compile Include="Models\ICompendiumModel.cs" />
-    <Compile Include="Models\IFusionArcanaModel.cs" />
-    <Compile Include="Models\IFusionModel.cs" />
-    <Compile Include="Models\IInheritanceModel.cs" />
     <Compile Include="Models\InheritanceModel.cs" />
-    <Compile Include="Models\IPersonaModel.cs" />
-    <Compile Include="Models\IPersonaRepository.cs" />
-    <Compile Include="Models\ISkillModel.cs" />
     <Compile Include="Models\LearnedSkill.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\PersonaInheritanceType.cs" />

@@ -6,6 +6,14 @@ using System.Linq;
 
 namespace FusionManager.Models
 {
+    public interface IPersonaModel
+    {
+        List<Persona> GetPersonaList();
+        List<Persona> GetPersonaList(Arcana arcana);
+        Persona GetPersonaByPersonaName(string name);
+        Tuple<Persona, Persona> GetNextLowestAndNextHighestPersonaByArcana(Arcana arcana, double targetLevel);
+    }
+
     public class PersonaModel : IPersonaModel
     {
         List<Persona> personaList;
@@ -97,7 +105,7 @@ namespace FusionManager.Models
                         entry = null;
                     }
                     persona.ActualLevel = entry != null ? entry.ActualLevel : persona.InitialLevel;
-                    persona.InheritedSkills = entry != null ? skillModel.GetSkillsFromSkillList(entry.InheritedSkills) : new List<Skill>();
+                    persona.InheritedSkills = entry != null ? skillModel.GetSkillsFromSkillList(entry.InheritedSkills) : new List<Skill>();                    
                     list.Add(persona);
                 }
             }

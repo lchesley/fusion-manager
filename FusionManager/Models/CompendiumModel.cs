@@ -7,6 +7,13 @@ using System.Web;
 
 namespace FusionManager.Models
 {
+    public interface ICompendiumModel
+    {
+        List<CompendiumEntry> GetCompendium();
+        CompendiumEntry GetCompendiumEntryByPersonaName(string name);
+        void UpdateCompendium(CompendiumEntry personaToUpdate, StreamWriter writer);
+    }
+
     public class CompendiumModel : ICompendiumModel
     {
         List<CompendiumEntry> compendium;
@@ -31,6 +38,27 @@ namespace FusionManager.Models
             {
                 throw new KeyNotFoundException(String.Format("No compendium entry for {0} exists.", name), ex);
             }
+        }
+
+        public void UpdateCompendium(CompendiumEntry personaToUpdate, StreamWriter writer)
+        {
+            var persona = compendium.FirstOrDefault(x => x.PersonaName == personaToUpdate.PersonaName);
+
+            if(persona != null)
+            {
+                persona.ActualLevel = personaToUpdate.ActualLevel;
+                persona.InheritedSkills = personaToUpdate.InheritedSkills;
+            }
+            else
+            {
+                compendium.Add(personaToUpdate);
+            }
+
+            using (TextWriter textWriter = writer)
+            {
+                var csv = new CsvWriter(writer);
+                csv.WriteRecords(compendium);
+            }            
         }
 
         protected List<CompendiumEntry> BuildCompendium(StreamReader reader)

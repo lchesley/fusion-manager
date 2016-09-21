@@ -8,6 +8,11 @@ using System.Web;
 
 namespace FusionManager.Models
 {
+    public interface IPersonaRepository
+    {
+        IEnumerable<Persona> GetPersonaList();
+    }
+
     public class PersonaRepository : IPersonaRepository
     {
         IFusionModel fusionModel;

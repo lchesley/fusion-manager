@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace FusionManager.Models
 {
+    public interface IInheritanceModel
+    {
+        List<SkillInheritance> GetSkillInheritanceByPersonaInheritanceType(PersonaInheritanceType type);
+    }
+
     public class InheritanceModel : IInheritanceModel
     {
         bool[,] skillInheritance;
