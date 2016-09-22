@@ -12,6 +12,8 @@ namespace FusionManager.Models
         List<Persona> GetPersonaList(Arcana arcana);
         Persona GetPersonaByPersonaName(string name);
         Tuple<Persona, Persona> GetNextLowestAndNextHighestPersonaByArcana(Arcana arcana, double targetLevel);
+        List<Skill> GetPotentialInheritedSkills(Persona result, Persona first, Persona second);
+        List<Skill> GetPotentialInheritedSkills(Persona result, Persona first, Persona second, Persona third);
     }
 
     public class PersonaModel : IPersonaModel
@@ -49,7 +51,16 @@ namespace FusionManager.Models
             {
                 throw new KeyNotFoundException(String.Format("No persona named {0} exists", name), ex);
             }
+        }
 
+        public List<Skill> GetPotentialInheritedSkills(Persona result, Persona first, Persona second)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Skill> GetPotentialInheritedSkills(Persona result, Persona first, Persona second, Persona third)
+        {
+            throw new NotImplementedException();
         }
 
         public Tuple<Persona, Persona> GetNextLowestAndNextHighestPersonaByArcana(Arcana arcana, double targetLevel)
@@ -111,6 +122,6 @@ namespace FusionManager.Models
             }
 
             return list;
-        }
+        }        
     }
 }

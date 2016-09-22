@@ -71,9 +71,9 @@ namespace FusionManager.Models
                 while (csv.Read())
                 {
                     CompendiumEntry entry = new CompendiumEntry();
-                    entry.ActualLevel = Convert.ToInt32(csv.GetField<string>("Level"));
-                    entry.PersonaName = csv.GetField<string>("Name");
-                    entry.InheritedSkills = csv.GetField<string>("Skills");                    
+                    entry.ActualLevel = Convert.ToInt32(csv.GetField<string>("ActualLevel"));
+                    entry.PersonaName = csv.GetField<string>("PersonaName");
+                    entry.InheritedSkills = csv.GetField<string>("InheritedSkills");                    
                     list.Add(entry);
                 }
             }
