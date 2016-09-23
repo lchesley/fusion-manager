@@ -160,6 +160,7 @@
     <Compile Include="Models\CompendiumEntry.cs" />
     <Compile Include="Models\CompendiumModel.cs" />
     <Compile Include="Models\FusionArcanaModel.cs" />
+    <Compile Include="Models\FusionInheritanceModel.cs" />
     <Compile Include="Models\FusionModel.cs" />
     <Compile Include="Models\InheritanceModel.cs" />
     <Compile Include="Models\LearnedSkill.cs" />

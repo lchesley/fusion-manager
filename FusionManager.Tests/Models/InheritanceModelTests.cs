@@ -74,5 +74,49 @@ namespace FusionManager.Tests.Models
             //Assert
             CollectionAssert.AreEqual(expected, resultSkillInheritance);
         }
+
+        [TestMethod]
+        public void GetMaximumTransferableSkills()
+        {
+            //Arrange
+            int skillsCount = 4;
+
+            //Act
+            var result = model.GetMaximumTransferableSkills(skillsCount);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(int));
+        }
+
+        [TestMethod]
+        public void GetMaximumTransferableSkills_LessThanFourSkills()
+        {
+            //Arrange
+            int skillsCount = 3;
+
+            //Act
+            var result = model.GetMaximumTransferableSkills(skillsCount);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(int));
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void GetMaximumTransferableSkills_GreaterThanThirteenSkills()
+        {
+            //Arrange
+            int skillsCount = 14;
+
+            //Act
+            var result = model.GetMaximumTransferableSkills(skillsCount);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(int));
+            Assert.AreEqual(4, result);
+        }
     }
 }

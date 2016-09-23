@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FusionManager.Models;
 using System.IO;
+using System.Collections.Generic;
 
 namespace FusionManager.Tests.Models
 {
@@ -247,6 +248,116 @@ namespace FusionManager.Tests.Models
             //Assert
             Assert.IsNotNull(result);
             CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Tuple<Arcana,Arcana>));
+        }
+
+        [TestMethod]
+        public void GetInheritableSkillsDouble()
+        {
+            //Arrange            
+            Persona first = personaModel.GetPersonaByPersonaName("Ukobach");
+            Persona second = personaModel.GetPersonaByPersonaName("Angel");
+            Persona resulting = model.FusePersona(first, second);            
+
+            //Act
+            var result = model.GetInheritableSkills(resulting, first, second);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result.Item1, typeof(int));
+            Assert.AreNotEqual(0, result.Item1);
+            CollectionAssert.AllItemsAreInstancesOfType(result.Item2, typeof(Skill));
+            CollectionAssert.AllItemsAreNotNull(result.Item2);
+            CollectionAssert.AllItemsAreUnique(result.Item2);
+        }
+
+        [TestMethod]
+        public void GetInheritableSkillsDouble_CheckResult()
+        {
+            //Arrange
+            Persona first = personaModel.GetPersonaByPersonaName("Anzu");
+            Persona second = personaModel.GetPersonaByPersonaName("Pixie");
+            Persona resulting = personaModel.GetPersonaByPersonaName("Sandman");
+            List<Skill> expected = new List<Skill>();
+            expected.Add(skillModel.GetSkillBySkillName("Dia"));
+            expected.Add(skillModel.GetSkillBySkillName("Zio"));
+            expected.Add(skillModel.GetSkillBySkillName("Mutudi"));
+            expected.Add(skillModel.GetSkillBySkillName("Garu"));
+
+            //Act
+            var result = model.GetInheritableSkills(resulting, first, second);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result.Item1, typeof(int));
+            Assert.AreNotEqual(0, result.Item1);
+            CollectionAssert.AllItemsAreInstancesOfType(result.Item2, typeof(Skill));
+            CollectionAssert.AllItemsAreNotNull(result.Item2);
+            CollectionAssert.AllItemsAreUnique(result.Item2);
+            CollectionAssert.AreEquivalent(expected, result.Item2);
+        }
+
+        [TestMethod]
+        public void GetInheritableSkillsDouble_ExcludedSkill()
+        {
+            //Arrange
+            Persona first = personaModel.GetPersonaByPersonaName("Belial");
+            first.ActualLevel = 54;
+            Persona second = personaModel.GetPersonaByPersonaName("Nebiros");
+            Persona resulting = personaModel.GetPersonaByPersonaName("Alice");
+            Skill excluded = skillModel.GetSkillBySkillName("Revenge Blow");            
+
+            //Act
+            var result = model.GetInheritableSkills(resulting, first, second);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result.Item1, typeof(int));
+            Assert.AreNotEqual(0, result.Item1);
+            CollectionAssert.AllItemsAreInstancesOfType(result.Item2, typeof(Skill));
+            CollectionAssert.AllItemsAreNotNull(result.Item2);
+            CollectionAssert.AllItemsAreUnique(result.Item2);
+            CollectionAssert.DoesNotContain(result.Item2, excluded);
+        }
+
+        [TestMethod]
+        public void GetInheritableSkillsDouble_ExcludeDoubles()
+        {
+            //Arrange
+            Persona first = personaModel.GetPersonaByPersonaName("Anzu");            
+            Persona second = personaModel.GetPersonaByPersonaName("Angel");
+            Persona resulting = model.FusePersona(first, second);
+
+            //Act
+            var result = model.GetInheritableSkills(resulting, first, second);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result.Item1, typeof(int));
+            Assert.AreNotEqual(0, result.Item1);
+            CollectionAssert.AllItemsAreInstancesOfType(result.Item2, typeof(Skill));
+            CollectionAssert.AllItemsAreNotNull(result.Item2);
+            CollectionAssert.AllItemsAreUnique(result.Item2);            
+        }
+
+        [TestMethod]
+        public void GetInheritableSkillsTriple()
+        {
+            //Arrange            
+            Persona first = personaModel.GetPersonaByPersonaName("Ukobach");
+            Persona second = personaModel.GetPersonaByPersonaName("Angel");
+            Persona third = personaModel.GetPersonaByPersonaName("Agathion");
+            Persona resulting = model.FusePersona(first, second);            
+
+            //Act
+            var result = model.GetInheritableSkills(resulting, first, second, third);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreNotEqual(0, result.Item1);
+            Assert.IsInstanceOfType(result.Item1, typeof(int));
+            CollectionAssert.AllItemsAreInstancesOfType(result.Item2, typeof(Skill));
+            CollectionAssert.AllItemsAreNotNull(result.Item2);
+            CollectionAssert.AllItemsAreUnique(result.Item2);
         }
 
         [TestMethod]

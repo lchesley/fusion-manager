@@ -10,6 +10,8 @@ namespace FusionManager.Models
     {
         Persona FusePersona(Persona first, Persona second);
         Persona FusePersona(Persona first, Persona second, Persona third);
+        Tuple<int,List<Skill>> GetInheritableSkills(Persona result, Persona first, Persona second);
+        Tuple<int,List<Skill>> GetInheritableSkills(Persona result, Persona first, Persona second, Persona third);
         List<Tuple<Arcana, Arcana>> FusionSearch(Arcana desiredArcana);
         List<string[]> FusionSearch(Persona desiredPersona);
         List<string[]> FusionSearch(Persona desiredPersona, Persona firstRequredPersona);
@@ -22,12 +24,12 @@ namespace FusionManager.Models
     public class FusionModel : IFusionModel
     {
         IFusionArcanaModel fusionArcanaModel;
-        IPersonaModel personaModel;
+        IPersonaModel personaModel;        
 
         public FusionModel(IFusionArcanaModel fusionArcanaModel, IPersonaModel personaModel)
         {
             this.fusionArcanaModel = fusionArcanaModel;
-            this.personaModel = personaModel;
+            this.personaModel = personaModel;            
         }
 
         #region Double and Triple Fusion
@@ -148,6 +150,79 @@ namespace FusionManager.Models
             }
 
             return result;
+        }
+
+        public Tuple<int,List<Skill>> GetInheritableSkills(Persona result, Persona first, Persona second)
+        {
+            int maximumTransferableSkills = 0;
+            List<Skill> skills = new List<Skill>();
+
+            //Check for compendium skill list, if it doesn't exist, use the learned skills.
+            if(first.InheritedSkills != null && first.InheritedSkills.Count > 0)
+            {
+                skills.AddRange(first.InheritedSkills);
+            }
+            else
+            {
+                skills.AddRange(first.LearnedSkills.Where(o => o.LevelLearned <= first.ActualLevel).Select(o => o.Skill).ToList<Skill>());
+            }
+
+            if (second.InheritedSkills != null && second.InheritedSkills.Count > 0)
+            {
+                skills.AddRange(second.InheritedSkills);
+            }
+            else
+            {
+                skills.AddRange(second.LearnedSkills.Where(o => o.LevelLearned <= second.ActualLevel).Select(o => o.Skill).ToList<Skill>());
+            }
+
+            maximumTransferableSkills = personaModel.GetMaximumTransferableSkills(skills.Count);
+
+            //Now check to make sure all of the skills are inheritable (and unique).
+            skills = skills.Where(o => o.CanPassDown && result.InheritableSkillTypes.Where(p => p.CanInherit).Select(p => p.Type).ToList<SkillInheritanceType>().Contains(o.SkillType)).Distinct<Skill>().ToList<Skill>();
+
+            return new Tuple<int, List<Skill>>(maximumTransferableSkills, skills);
+        }
+
+        public Tuple<int,List<Skill>> GetInheritableSkills(Persona result, Persona first, Persona second, Persona third)
+        {
+            int maximumTransferableSkills = 0;
+            List<Skill> skills = new List<Skill>();
+
+            //Check for compendium skill list, if it doesn't exist, use the learned skills.
+            if (first.InheritedSkills != null && first.InheritedSkills.Count > 0)
+            {
+                skills.AddRange(first.InheritedSkills);
+            }
+            else
+            {
+                skills.AddRange(first.LearnedSkills.Where(o => o.LevelLearned <= first.ActualLevel).Select(o => o.Skill).ToList<Skill>());
+            }
+
+            if (second.InheritedSkills != null && second.InheritedSkills.Count > 0)
+            {
+                skills.AddRange(second.InheritedSkills);
+            }
+            else
+            {
+                skills.AddRange(second.LearnedSkills.Where(o => o.LevelLearned <= second.ActualLevel).Select(o => o.Skill).ToList<Skill>());
+            }
+
+            if (third.InheritedSkills != null && third.InheritedSkills.Count > 0)
+            {
+                skills.AddRange(third.InheritedSkills);
+            }
+            else
+            {
+                skills.AddRange(third.LearnedSkills.Where(o => o.LevelLearned <= third.ActualLevel).Select(o => o.Skill).ToList<Skill>());
+            }
+
+            maximumTransferableSkills = personaModel.GetMaximumTransferableSkills(skills.Count);
+
+            //Now check to make sure all of the skills are inheritable (and unique).
+            skills = skills.Where(o => o.CanPassDown && result.InheritableSkillTypes.Where(p => p.CanInherit).Select(p => p.Type).ToList<SkillInheritanceType>().Contains(o.SkillType)).Distinct<Skill>().ToList<Skill>();
+
+            return new Tuple<int, List<Skill>>(maximumTransferableSkills, skills);
         }
 
         #endregion

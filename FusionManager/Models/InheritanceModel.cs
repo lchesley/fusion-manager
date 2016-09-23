@@ -8,12 +8,14 @@ namespace FusionManager.Models
 {
     public interface IInheritanceModel
     {
-        List<SkillInheritance> GetSkillInheritanceByPersonaInheritanceType(PersonaInheritanceType type);        
+        List<SkillInheritance> GetSkillInheritanceByPersonaInheritanceType(PersonaInheritanceType type);
+        int GetMaximumTransferableSkills(int totalNumberofSkills);
     }
 
     public class InheritanceModel : IInheritanceModel
     {
         bool[,] skillInheritance;
+        Dictionary<int, int> maximumTransferableSkills;
 
         public InheritanceModel()
         {
@@ -53,6 +55,18 @@ namespace FusionManager.Models
                 {false, true, true, true, true, false, true, false, true, false, true, false, true},
             };
 
+            maximumTransferableSkills = new Dictionary<int, int>();
+            maximumTransferableSkills.Add(4, 1);
+            maximumTransferableSkills.Add(5, 1);
+            maximumTransferableSkills.Add(6, 1);
+            maximumTransferableSkills.Add(7, 2);
+            maximumTransferableSkills.Add(8, 2);
+            maximumTransferableSkills.Add(9, 2);
+            maximumTransferableSkills.Add(10, 3);
+            maximumTransferableSkills.Add(11, 3);
+            maximumTransferableSkills.Add(12, 3);
+            maximumTransferableSkills.Add(13, 4);            
+
             #endregion
         }
 
@@ -72,6 +86,21 @@ namespace FusionManager.Models
             }
 
             return list;
+        }
+
+        public int GetMaximumTransferableSkills(int totalNumberofSkills)
+        {       
+            if(totalNumberofSkills < 4)
+            {
+                return 1;
+            }
+
+            if(totalNumberofSkills > 13)
+            {
+                return maximumTransferableSkills[13];
+            }
+            
+            return maximumTransferableSkills[totalNumberofSkills];            
         }
     }
 }
