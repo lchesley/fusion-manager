@@ -1,0 +1,54 @@
+﻿@model FusionManager.Models.Persona
+
+@{
+    ViewBag.Title = Model.Name;
+}
+<div class="card">
+    <div class="card-header @Model.InheritanceType.ToString()">
+        <span class="h3">@Model.Name (@Model.InitialLevel)</span><span class="h6 pull-right">+@Model.HPIncrease HP +@Model.SPIncrease SP</span>
+    </div>
+    <div class="card-block">                    
+        <h4 class="card-text">@Model.Arcana</h4>                        
+        <p class="card-text">
+            Extracted : @Model.ExtractedSkill.Name
+        </p>
+        <p class="card-text">
+            Inheritance Type : @Model.InheritanceType.ToString()
+        </p>                    
+        <h4>Learned Skills</h4>
+        <ul class="list-group list-group-flush">
+            @foreach (var skill in Model.LearnedSkills)
+            {
+                <li class="list-group-item">@skill.Skill.Name (@skill.LevelLearned)</li>
+            }
+        </ul>
+                
+        @if (Model.InheritedSkills != null && Model.InheritedSkills.Count > 0)
+        {
+            <h4>Compendium Entry</h4>
+            <p>Level : @Model.ActualLevel</p>
+            <ul class="list-group list-group-flush">
+                @foreach (var skill in Model.InheritedSkills)
+                {
+                    <li class="list-group-item">@skill.Name</li>
+                }
+            </ul>
+        }
+                           
+        <h4>Inheritable Skill Types</h4>
+        <ul class="list-inline">
+            @foreach (var type in Model.InheritableSkillTypes)
+            {
+                if (type.CanInherit)
+                {
+                    <li class="@type.Type.ToName()">@type.Type.ToName()</li>
+                }
+            }
+        </ul>            
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Return To Listing", "Index") |
+        @Html.ActionLink("Compendium", "Edit", new { /* id=item.PrimaryKey */ }) |        
+        @Html.ActionLink("How Do I Fuse?", "Delete", new { /* id=item.PrimaryKey */ })
+    </div>
+</div>

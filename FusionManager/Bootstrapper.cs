@@ -20,7 +20,7 @@ namespace FusionManager
         {
             var container = new UnityContainer();
             container.RegisterType<IPersonaRepository, PersonaRepository>();
-            //container.RegisterType<IController, HomeController>("Home");
+            container.RegisterType<IController, PersonaController>("Persona");
             return container;
         }
     }

@@ -8,6 +8,7 @@ namespace FusionManager.Models
 {
     public class Persona
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public Arcana Arcana { get; set; }
         public int InitialLevel { get; set; }

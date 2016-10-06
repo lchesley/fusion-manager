@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FusionManager.Models.Persona>
+
+@{
+    ViewBag.Title = "Persona Listing";
+}
+<h3>Persona Listing</h3>
+<div style="display: flex; flex-wrap : wrap; justify-content: space-around;">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header @item.InheritanceType.ToString()" style="width: 325px;">
+                <span class="h3">@item.Name (@item.InitialLevel)</span><span class="h6 pull-right">+@item.HPIncrease HP +@item.SPIncrease SP</span>
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">@item.Arcana</h4>
+                <p class="card-text">
+                    Extracted : @item.ExtractedSkill.Name
+                </p>
+                <p class="card-text">
+                    Inheritance Type : @item.InheritanceType.ToString()
+                </p>
+                @if (item.InheritedSkills != null && item.InheritedSkills.Count > 0)
+                {
+                    <p><small>Included in Compendium</small></p>
+                }
+            </div>
+            <div class="card-footer">
+                @Html.ActionLink("Show Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Compendium", "Edit", new { /* id=item.PrimaryKey */ }) |                
+                @Html.ActionLink("How Do I Fuse?", "Delete", new { /* id=item.PrimaryKey */ })
+            </div>
+        </div>
+    }
+</div>
+@section scripts{
+    <script type="text/javascript">
+
+    </script>
+}
