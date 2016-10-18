@@ -28,5 +28,11 @@ namespace FusionManager.Controllers
             var persona = repository.GetPersonaByID(ID);
             return View(persona);
         }
+
+        public ActionResult CompendiumIndex()
+        {
+            var compendiumList = repository.GetCompendiumList();
+            return View(compendiumList);
+        }
     }
 }

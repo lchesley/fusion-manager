@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = Model.Name;
 }
+<div style="height:20px;"></div>
 <div class="card">
     <div class="card-header @Model.InheritanceType.ToString()">
         <span class="h3">@Model.Name (@Model.InitialLevel)</span><span class="h6 pull-right">+@Model.HPIncrease HP +@Model.SPIncrease SP</span>
@@ -16,25 +17,51 @@
             Inheritance Type : @Model.InheritanceType.ToString()
         </p>                    
         <h4>Learned Skills</h4>
-        <ul class="list-group list-group-flush">
-            @foreach (var skill in Model.LearnedSkills)
-            {
-                <li class="list-group-item">@skill.Skill.Name (@skill.LevelLearned)</li>
-            }
-        </ul>
+        <table class="table table-responsive table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Level</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>In.</th>
+            </tr>
+            
+                @foreach (var skill in Model.LearnedSkills)
+                {
+                    <tr class="@(skill.Skill.CanPassDown ? "" : "danger")">
+                        <td>@skill.Skill.Name</td>
+                        <td>@skill.LevelLearned</td>
+                        <td>@skill.Skill.Type</td>
+                        <td>@skill.Skill.Description</td>
+                        <td class="@(skill.Skill.CanPassDown ? skill.Skill.SkillType.ToName() : "")">@skill.Skill.SkillType.ToName()</td>
+                    </tr>
+                }
+            
+        </table>
                 
         @if (Model.InheritedSkills != null && Model.InheritedSkills.Count > 0)
         {
             <h4>Compendium Entry</h4>
             <p>Level : @Model.ActualLevel</p>
-            <ul class="list-group list-group-flush">
+            <table class="table table-responsive table-bordered">
+                <tr>
+                    <th>Name</th>                    
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>In.</th>
+                </tr>
                 @foreach (var skill in Model.InheritedSkills)
-                {
-                    <li class="list-group-item">@skill.Name</li>
+                {                                        
+                    <tr class="@(skill.CanPassDown ? "" : "danger")">                    
+                        <td>@skill.Name</td>
+                        <td>@skill.Type</td>
+                        <td>@skill.Description</td>
+                        <td class="@(skill.CanPassDown ? skill.SkillType.ToName() : "")">@skill.SkillType.ToName()</td>
+                    </tr>
                 }
-            </ul>
+            </table>
         }
-                           
+
         <h4>Inheritable Skill Types</h4>
         <ul class="list-inline">
             @foreach (var type in Model.InheritableSkillTypes)
@@ -44,8 +71,8 @@
                     <li class="@type.Type.ToName()">@type.Type.ToName()</li>
                 }
             }
-        </ul>            
-    </div>
+        </ul>
+</div>
     <div class="card-footer">
         @Html.ActionLink("Return To Listing", "Index") |
         @Html.ActionLink("Compendium", "Edit", new { /* id=item.PrimaryKey */ }) |        

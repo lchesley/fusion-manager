@@ -12,6 +12,7 @@ namespace FusionManager.Models
     {
         IEnumerable<Persona> GetPersonaList();
         Persona GetPersonaByID(int ID);
+        IEnumerable<CompendiumEntry> GetCompendiumList();
     }
 
     public class PersonaRepository : IPersonaRepository
@@ -44,6 +45,11 @@ namespace FusionManager.Models
         public Persona GetPersonaByID(int ID)
         {
             return personaModel.GetPersonaByID(ID);
+        }
+
+        public IEnumerable<CompendiumEntry> GetCompendiumList()
+        {
+            return compendiumModel.GetCompendium();
         }
     }
 }

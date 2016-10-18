@@ -106,11 +106,3 @@ textarea {
     border : 1px solid black;
     color : black;
 }
-
-.pointer {
-    cursor: pointer;    
-}
-
-.contentclose {
-    display: none;
-}

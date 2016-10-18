@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,8 +8,11 @@ namespace FusionManager.Models
 {
     public class CompendiumEntry
     {
+        [Display(Name = "Name")]
         public string PersonaName { get; set; }
+        [Display(Name = "Level")]
         public int ActualLevel { get; set; }
+        [Display(Name = "Skills")]
         public string InheritedSkills { get; set; }
 
         public override bool Equals(object obj)
