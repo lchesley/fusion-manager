@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace FusionManager.Tests.Mocks
 {
@@ -34,6 +35,26 @@ namespace FusionManager.Tests.Mocks
         public IEnumerable<Persona> GetPersonaList()
         {
             return personaModel.GetPersonaList();
+        }
+
+        public Persona GetPersonaByID(int ID)
+        {
+            throw new NotImplementedException();
+        }
+                
+        public CompendiumEntry GetCompendiumEntry(string name)
+        {
+            throw new NotImplementedException();
+        }        
+
+        public List<SelectListItem> GetPersonaNames(bool includeCompendium)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Persona> GetCompendiumList()
+        {
+            throw new NotImplementedException();
         }
     }
 }

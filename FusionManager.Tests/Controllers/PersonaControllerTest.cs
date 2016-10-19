@@ -11,7 +11,7 @@ using FusionManager.Tests.Mocks;
 namespace FusionManager.Tests.Controllers
 {
     [TestClass]
-    public class HomeControllerTest
+    public class PersonaControllerTest
     {
         MockPersonaRepository repository;
 
@@ -25,7 +25,7 @@ namespace FusionManager.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController(repository);
+            PersonaController controller = new PersonaController(repository);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;

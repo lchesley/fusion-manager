@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FusionManager.Models.CompendiumEntry>
+﻿@model IEnumerable<FusionManager.Models.Persona>
 
 @{
     ViewBag.Title = "Compendium";
@@ -7,18 +7,18 @@
 <h2>Compendium</h2>
 
 <p>
-    @Html.ActionLink("Add Persona to Compendium", "Create")
+    @Html.ActionLink("Add Persona to Compendium", "CompendiumEdit", new { ID = 0 })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PersonaName)
+            Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActualLevel)
+            Level
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InheritedSkills)
+            Inherited Skills
         </th>
         <th></th>
     </tr>
@@ -26,18 +26,17 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PersonaName)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ActualLevel)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.InheritedSkills)
+            @Html.DisplayFor(modelItem => item.InheritedSkillsList)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "CompendiumEdit", new { ID = item.ID }) |
+            @Html.ActionLink("Details", "CompendiumDetails", new { ID = item.ID })            
         </td>
     </tr>
 }

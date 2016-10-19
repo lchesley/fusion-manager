@@ -158,6 +158,7 @@
     <Compile Include="Helpers.cs" />
     <Compile Include="Models\Arcana.cs" />
     <Compile Include="Models\CompendiumEntry.cs" />
+    <Compile Include="Models\CompendiumEntryModel.cs" />
     <Compile Include="Models\CompendiumModel.cs" />
     <Compile Include="Models\FusionArcanaModel.cs" />
     <Compile Include="Models\FusionInheritanceModel.cs" />
@@ -227,6 +228,8 @@
     <Content Include="Views\Persona\Index.cshtml" />
     <Content Include="Views\Persona\Details.cshtml" />
     <Content Include="Views\Persona\CompendiumIndex.cshtml" />
+    <Content Include="Views\Persona\CompendiumDetails.cshtml" />
+    <Content Include="Views\Persona\CompendiumEdit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

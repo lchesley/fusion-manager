@@ -39,7 +39,7 @@
             
         </table>
                 
-        @if (Model.InheritedSkills != null && Model.InheritedSkills.Count > 0)
+        @if (Model.HasCompendiumEntry)
         {
             <h4>Compendium Entry</h4>
             <p>Level : @Model.ActualLevel</p>
@@ -75,7 +75,7 @@
 </div>
     <div class="card-footer">
         @Html.ActionLink("Return To Listing", "Index") |
-        @Html.ActionLink("Compendium", "Edit", new { /* id=item.PrimaryKey */ }) |        
+        @Html.ActionLink("Compendium", "CompendiumDetails", new { ID = Model.ID }) |       
         @Html.ActionLink("How Do I Fuse?", "Delete", new { /* id=item.PrimaryKey */ })
     </div>
 </div>

@@ -19,14 +19,14 @@
                 <p class="card-text">
                     Inheritance Type : @item.InheritanceType.ToString()
                 </p>
-                @if (item.InheritedSkills != null && item.InheritedSkills.Count > 0)
+                @if (item.HasCompendiumEntry)
                 {
                     <p><small>Included in Compendium</small></p>
                 }
             </div>
             <div class="card-footer">
                 @Html.ActionLink("Show Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Compendium", "Edit", new { /* id=item.PrimaryKey */ }) |                
+                @Html.ActionLink("Compendium", "CompendiumDetails", new { id = item.ID }) |                
                 @Html.ActionLink("How Do I Fuse?", "Delete", new { /* id=item.PrimaryKey */ })
             </div>
         </div>

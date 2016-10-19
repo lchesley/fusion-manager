@@ -11,7 +11,7 @@ namespace FusionManager.Models
     {
         List<CompendiumEntry> GetCompendium();
         CompendiumEntry GetCompendiumEntryByPersonaName(string name);
-        void UpdateCompendium(CompendiumEntry personaToUpdate, StreamWriter writer);
+        void UpdateCompendium(CompendiumEntry personaToUpdate, StreamWriter writer);        
     }
 
     public class CompendiumModel : ICompendiumModel
@@ -27,7 +27,7 @@ namespace FusionManager.Models
         {
             return compendium;
         }
-
+        
         public CompendiumEntry GetCompendiumEntryByPersonaName(string name)
         {
             try
@@ -63,18 +63,18 @@ namespace FusionManager.Models
 
         protected List<CompendiumEntry> BuildCompendium(StreamReader reader)
         {
-            List<CompendiumEntry> list = new List<CompendiumEntry>();
+            List<CompendiumEntry> list = new List<CompendiumEntry>();            
 
             using (TextReader textReader = reader)
             {
                 var csv = new CsvReader(textReader);
                 while (csv.Read())
                 {
-                    CompendiumEntry entry = new CompendiumEntry();
+                    CompendiumEntry entry = new CompendiumEntry();                    
                     entry.ActualLevel = Convert.ToInt32(csv.GetField<string>("ActualLevel"));
                     entry.PersonaName = csv.GetField<string>("PersonaName");
                     entry.InheritedSkills = csv.GetField<string>("InheritedSkills");                    
-                    list.Add(entry);
+                    list.Add(entry);                    
                 }
             }
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FusionManager.Models
 {
@@ -12,7 +13,9 @@ namespace FusionManager.Models
     {
         IEnumerable<Persona> GetPersonaList();
         Persona GetPersonaByID(int ID);
-        IEnumerable<CompendiumEntry> GetCompendiumList();
+        IEnumerable<Persona> GetCompendiumList();
+        CompendiumEntry GetCompendiumEntry(string name);
+        List<SelectListItem> GetPersonaNames(bool includeCompendium);
     }
 
     public class PersonaRepository : IPersonaRepository
@@ -47,9 +50,39 @@ namespace FusionManager.Models
             return personaModel.GetPersonaByID(ID);
         }
 
-        public IEnumerable<CompendiumEntry> GetCompendiumList()
+        public IEnumerable<Persona> GetCompendiumList()
         {
-            return compendiumModel.GetCompendium();
+            return personaModel.GetPersonaList().Where(o => o.HasCompendiumEntry);
+        }
+        
+        public CompendiumEntry GetCompendiumEntry(string name)
+        {
+            return compendiumModel.GetCompendiumEntryByPersonaName(name);
+        }
+
+        public List<SelectListItem> GetPersonaNames(bool includeCompendium)
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            List<Persona> names = new List<Persona>();
+
+            if(includeCompendium)
+            {
+                names = personaModel.GetPersonaList().OrderBy(o => o.Name).ToList<Persona>();
+            }
+            else
+            {
+                names = personaModel.GetPersonaList().Where(o => !o.HasCompendiumEntry).OrderBy(o => o.Name).ToList<Persona>();
+            }
+            
+            if (names != null && names.Count > 0)
+            {
+                foreach (var name in names)
+                {
+                    list.Add(new SelectListItem { Value = name.Name, Text = name.Name });
+                }
+            }
+
+            return list;
         }
     }
 }

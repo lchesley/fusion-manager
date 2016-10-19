@@ -1,0 +1,34 @@
+﻿@model FusionManager.Models.CompendiumEntry
+
+@{
+    ViewBag.Title = "Compendium Details";
+}
+
+<h2>Compendium Details</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.PersonaName)</h4>
+    <hr />
+    <dl class="dl-horizontal">        
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InheritedSkills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InheritedSkills)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "CompendiumEdit", new {  ID = ViewBag.PersonaID }) |
+    @Html.ActionLink("Back to Compendium", "CompendiumIndex")
+</p>

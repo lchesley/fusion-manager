@@ -8,7 +8,7 @@ namespace FusionManager.Models
 {
     public class Persona
     {
-        public int ID { get; set; }
+        public int ID { get; set; }        
         public string Name { get; set; }
         public Arcana Arcana { get; set; }
         public int InitialLevel { get; set; }
@@ -44,7 +44,25 @@ namespace FusionManager.Models
 
                 return temp.Remove(temp.Length - 2);
             }
-        }        
+        }
+
+        public string InheritedSkillsList
+        {
+            get
+            {
+                string temp = String.Empty;
+
+                if (InheritedSkills != null && InheritedSkills.Count > 0)
+                {
+                    foreach (Skill skill in InheritedSkills)
+                    {                        
+                        temp += String.Format("{0}, ", skill.Name);                        
+                    }
+                }
+
+                return temp.Remove(temp.Length - 2);
+            }
+        }
 
         public override bool Equals(object obj)
         {
@@ -62,6 +80,21 @@ namespace FusionManager.Models
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public bool HasCompendiumEntry
+        {
+            get
+            {
+                if(InheritedSkills != null && InheritedSkills.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Web;
 namespace FusionManager.Models
 {
     public class CompendiumEntry
-    {
+    {        
         [Display(Name = "Name")]
         public string PersonaName { get; set; }
         [Display(Name = "Level")]

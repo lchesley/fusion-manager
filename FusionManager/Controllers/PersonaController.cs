@@ -34,5 +34,51 @@ namespace FusionManager.Controllers
             var compendiumList = repository.GetCompendiumList();
             return View(compendiumList);
         }
+
+        public ActionResult CompendiumDetails(int ID)
+        {
+            Persona persona = repository.GetPersonaByID(ID);
+
+            if(persona.HasCompendiumEntry)
+            {
+                var model = repository.GetCompendiumEntry(persona.Name);
+                ViewBag.PersonaID = persona.ID;
+                return View(model);
+            }
+            else
+            {
+                return CompendiumEdit(ID);
+            }            
+        }
+
+        public ActionResult CompendiumEdit(int ID)
+        {
+            CompendiumEntryModel model = new CompendiumEntryModel();
+            CompendiumEntry entry = new CompendiumEntry();
+
+            if (ID > 0)
+            {
+                Persona persona = repository.GetPersonaByID(ID);                
+
+                if (persona.HasCompendiumEntry)
+                {
+                    entry = repository.GetCompendiumEntry(persona.Name);
+                    model.InheritedSkills = persona.InheritedSkills;
+                }
+                else
+                {
+                    entry.PersonaName = persona.Name;
+                    entry.ActualLevel = persona.ActualLevel;                                                            
+                }
+            }
+            else
+            {
+                model.PersonaNames = repository.GetPersonaNames(false);
+            }
+
+            model.Entry = entry;
+            
+            return View(model);
+        }        
     }
 }
