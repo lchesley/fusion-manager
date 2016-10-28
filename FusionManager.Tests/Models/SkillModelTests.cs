@@ -132,5 +132,61 @@ namespace FusionManager.Tests.Models
             CollectionAssert.AllItemsAreNotNull(result);
             CollectionAssert.AreEqual(expected, result);            
         }
+
+        [TestMethod]
+        public void GetInheritableSkillsByInheritanceType()
+        {
+            //Arrange
+            SkillInheritanceType type = SkillInheritanceType.Almighty;
+
+            //Act
+            var result = model.GetInheritableSkillsByInheritanceType(type);
+
+            //Assert
+            CollectionAssert.AllItemsAreNotNull(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Skill));
+        }
+
+        [TestMethod]
+        public void GetInheritableSkillsByInheritanceType_GreaterThanZeroResults()
+        {
+            //Arrange
+            SkillInheritanceType type = SkillInheritanceType.Almighty;
+
+            //Act
+            var result = model.GetInheritableSkillsByInheritanceType(type);
+
+            //Assert
+            CollectionAssert.AllItemsAreNotNull(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Skill));
+            CollectionAssert.AllItemsAreUnique(result);
+            Assert.AreNotEqual(result.Count, 0);
+        }
+
+        [TestMethod]
+        public void GetInheritableSkillsByInheritanceType_AllSkillsCanPassDown()
+        {
+            //Arrange
+            SkillInheritanceType type = SkillInheritanceType.Almighty;
+            bool canPassDown = true;
+
+            //Act
+            var result = model.GetInheritableSkillsByInheritanceType(type);
+
+            foreach(Skill skill in result)
+            {
+                if(!skill.CanPassDown)
+                {
+                    canPassDown = false;
+                }
+            }
+
+            //Assert
+            CollectionAssert.AllItemsAreNotNull(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Skill));
+            CollectionAssert.AllItemsAreUnique(result);
+            Assert.AreNotEqual(result.Count, 0);
+            Assert.AreEqual(canPassDown, true);            
+        }
     }
 }

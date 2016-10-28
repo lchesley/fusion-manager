@@ -56,5 +56,19 @@ namespace FusionManager.Tests.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public Persona GetPersonaByPersonaName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ConvertToStringFromBase64(string name)
+        {
+            string result = String.Empty;
+
+            result = Encoding.UTF8.GetString(Convert.FromBase64String(name));
+
+            return result;
+        }
     }
 }

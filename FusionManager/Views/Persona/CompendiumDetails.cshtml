@@ -29,6 +29,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "CompendiumEdit", new {  ID = ViewBag.PersonaID }) |
+    @Html.ActionLink("Edit", "CompendiumEdit", new {  name = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(Model.PersonaName)) }) |
     @Html.ActionLink("Back to Compendium", "CompendiumIndex")
 </p>

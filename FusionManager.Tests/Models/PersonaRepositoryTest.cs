@@ -33,5 +33,21 @@ namespace FusionManager.Tests.Models
             CollectionAssert.AllItemsAreInstancesOfType(result.ToList<Persona>(), typeof(Persona));
             CollectionAssert.AllItemsAreUnique(result.ToList<Persona>());
         }
+
+        [TestMethod]
+        public void ConvertFromBase64ToName()
+        {
+            //Arrange
+            string expected = "Jack Frost";
+            string base64 = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(expected));
+
+            //Act
+            var result = repository.ConvertToStringFromBase64(base64);
+
+            //Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(expected, result);
+            Assert.IsInstanceOfType(result, typeof(string));
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace FusionManager.Models
         Persona GetPersonaByPersonaName(string name);
         Tuple<Persona, Persona> GetNextLowestAndNextHighestPersonaByArcana(Arcana arcana, double targetLevel);
         int GetMaximumTransferableSkills(int totalNumberOfSkills);
-        Persona GetPersonaByID(int iD);
+        List<Skill> GetAllPossibleInheritableSkillsForPersonaByPersonaName(string name);
     }
 
     public class PersonaModel : IPersonaModel
@@ -51,19 +51,7 @@ namespace FusionManager.Models
             {
                 throw new KeyNotFoundException(String.Format("No persona named {0} exists", name), ex);
             }
-        } 
-        
-        public Persona GetPersonaByID(int ID)
-        {
-            try
-            {
-                return personaList.Where(o => o.ID == ID).Single();
-            }
-            catch (Exception ex)
-            {
-                throw new KeyNotFoundException(String.Format("Persona {0} does not exist", ID), ex);
-            }
-        }
+        }                 
 
         public Tuple<Persona, Persona> GetNextLowestAndNextHighestPersonaByArcana(Arcana arcana, double targetLevel)
         {
@@ -90,8 +78,7 @@ namespace FusionManager.Models
         protected List<Persona> BuildPersonaList(StreamReader reader)
         {
             List<Persona> list = new List<Persona>();
-            CompendiumEntry entry = new CompendiumEntry();
-            int count = 1;
+            CompendiumEntry entry = new CompendiumEntry();            
 
             using (TextReader textReader = reader)
             {
@@ -99,8 +86,7 @@ namespace FusionManager.Models
                 
                 while (csv.Read())
                 {
-                    Persona persona = new Persona();
-                    persona.ID = count;
+                    Persona persona = new Persona();                    
                     persona.HPIncrease = Convert.ToInt32(csv.GetField<string>("HP"));
                     persona.SPIncrease = Convert.ToInt32(csv.GetField<string>("SP"));
                     persona.Arcana = (Arcana)Enum.Parse(typeof(Arcana), csv.GetField<string>("Arcana"));
@@ -120,9 +106,9 @@ namespace FusionManager.Models
                         entry = null;
                     }
                     persona.ActualLevel = entry != null ? entry.ActualLevel : persona.InitialLevel;
-                    persona.InheritedSkills = entry != null ? skillModel.GetSkillsFromSkillList(entry.InheritedSkills) : new List<Skill>();                    
-                    list.Add(persona);
-                    count++;
+                    persona.InheritedSkills = entry != null ? skillModel.GetSkillsFromSkillList(entry.InheritedSkills) : new List<Skill>();
+                    persona.HasCompendiumEntry = entry != null ? true : false;          
+                    list.Add(persona);                    
                 }
             }
 
@@ -132,6 +118,11 @@ namespace FusionManager.Models
         public int GetMaximumTransferableSkills(int totalNumberOfSkills)
         {
             return inheritanceModel.GetMaximumTransferableSkills(totalNumberOfSkills);
+        }
+
+        public List<Skill> GetAllPossibleInheritableSkillsForPersonaByPersonaName(string name)
+        {
+            throw new NotImplementedException();
         }
     }
 }

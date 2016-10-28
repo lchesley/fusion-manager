@@ -12,6 +12,7 @@ namespace FusionManager.Models
         Skill GetSkillBySkillName(string skillName);
         List<LearnedSkill> GetLearnedSkillsFromSkillList(string skillList);
         List<Skill> GetSkillsFromSkillList(string skills);
+        List<Skill> GetInheritableSkillsByInheritanceType(SkillInheritanceType type);
     }
 
     public class SkillModel : ISkillModel
@@ -107,6 +108,15 @@ namespace FusionManager.Models
             }
 
             return list;
-        }        
+        }
+
+        public List<Skill> GetInheritableSkillsByInheritanceType(SkillInheritanceType type)
+        {
+            List<Skill> skills = new List<Skill>();
+
+            skills = skillList.Where(o => o.SkillType == type && o.CanPassDown).ToList<Skill>();
+
+            return skills;
+        }
     }
 }

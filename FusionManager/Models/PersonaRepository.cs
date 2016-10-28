@@ -12,10 +12,11 @@ namespace FusionManager.Models
     public interface IPersonaRepository
     {
         IEnumerable<Persona> GetPersonaList();
-        Persona GetPersonaByID(int ID);
+        Persona GetPersonaByPersonaName(string name);
         IEnumerable<Persona> GetCompendiumList();
         CompendiumEntry GetCompendiumEntry(string name);
         List<SelectListItem> GetPersonaNames(bool includeCompendium);
+        string ConvertToStringFromBase64(string name);
     }
 
     public class PersonaRepository : IPersonaRepository
@@ -45,9 +46,9 @@ namespace FusionManager.Models
             return personaModel.GetPersonaList();
         }
 
-        public Persona GetPersonaByID(int ID)
+        public Persona GetPersonaByPersonaName(string name)
         {
-            return personaModel.GetPersonaByID(ID);
+            return personaModel.GetPersonaByPersonaName(name);
         }
 
         public IEnumerable<Persona> GetCompendiumList()
@@ -83,6 +84,15 @@ namespace FusionManager.Models
             }
 
             return list;
+        }
+
+        public string ConvertToStringFromBase64(string name)
+        {
+            string result = String.Empty;
+
+            result = Encoding.UTF8.GetString(Convert.FromBase64String(name));
+
+            return result;
         }
     }
 }

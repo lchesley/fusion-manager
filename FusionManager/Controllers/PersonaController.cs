@@ -23,9 +23,9 @@ namespace FusionManager.Controllers
             return View(personaList);
         }
 
-        public ActionResult Details(int ID)
+        public ActionResult Details(string name)
         {
-            var persona = repository.GetPersonaByID(ID);
+            var persona = repository.GetPersonaByPersonaName(repository.ConvertToStringFromBase64(name));
             return View(persona);
         }
 
@@ -35,50 +35,50 @@ namespace FusionManager.Controllers
             return View(compendiumList);
         }
 
-        public ActionResult CompendiumDetails(int ID)
+        public ActionResult CompendiumDetails(string name)
         {
-            Persona persona = repository.GetPersonaByID(ID);
+            Persona persona = repository.GetPersonaByPersonaName(repository.ConvertToStringFromBase64(name));
 
             if(persona.HasCompendiumEntry)
             {
-                var model = repository.GetCompendiumEntry(persona.Name);
-                ViewBag.PersonaID = persona.ID;
+                var model = repository.GetCompendiumEntry(persona.Name);                
                 return View(model);
             }
             else
             {
-                return CompendiumEdit(ID);
+                return CompendiumEdit(name);
             }            
         }
 
-        public ActionResult CompendiumEdit(int ID)
+        public ActionResult CompendiumEdit(string name)
         {
-            CompendiumEntryModel model = new CompendiumEntryModel();
-            CompendiumEntry entry = new CompendiumEntry();
+            //CompendiumEntryModel model = new CompendiumEntryModel();
+            //CompendiumEntry entry = new CompendiumEntry();
 
-            if (ID > 0)
-            {
-                Persona persona = repository.GetPersonaByID(ID);                
+            //if (ID > 0)
+            //{
+            //    Persona persona = repository.GetPersonaByPersonaName(name);                
 
-                if (persona.HasCompendiumEntry)
-                {
-                    entry = repository.GetCompendiumEntry(persona.Name);
-                    model.InheritedSkills = persona.InheritedSkills;
-                }
-                else
-                {
-                    entry.PersonaName = persona.Name;
-                    entry.ActualLevel = persona.ActualLevel;                                                            
-                }
-            }
-            else
-            {
-                model.PersonaNames = repository.GetPersonaNames(false);
-            }
+            //    if (persona.HasCompendiumEntry)
+            //    {
+            //        entry = repository.GetCompendiumEntry(persona.Name);
+            //        model.InheritedSkills = persona.InheritedSkills;
+            //    }
+            //    else
+            //    {
+            //        entry.PersonaName = persona.Name;
+            //        entry.ActualLevel = persona.ActualLevel;                                                            
+            //    }
+            //}
+            //else
+            //{
+            //    model.PersonaNames = repository.GetPersonaNames(false);
+            //}
 
-            model.Entry = entry;
-            
-            return View(model);
-        }        
+            //model.Entry = entry;
+
+            //return View(model);
+            return View();
+        }
     }
 }

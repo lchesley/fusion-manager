@@ -157,8 +157,8 @@ namespace FusionManager.Models
             int maximumTransferableSkills = 0;
             List<Skill> skills = new List<Skill>();
 
-            //Check for compendium skill list, if it doesn't exist, use the learned skills.
-            if(first.InheritedSkills != null && first.InheritedSkills.Count > 0)
+            //Check for compendium existence, if it doesn't exist, use the learned skills.
+            if(first.HasCompendiumEntry)
             {
                 skills.AddRange(first.InheritedSkills);
             }
@@ -167,7 +167,7 @@ namespace FusionManager.Models
                 skills.AddRange(first.LearnedSkills.Where(o => o.LevelLearned <= first.ActualLevel).Select(o => o.Skill).ToList<Skill>());
             }
 
-            if (second.InheritedSkills != null && second.InheritedSkills.Count > 0)
+            if (second.HasCompendiumEntry)
             {
                 skills.AddRange(second.InheritedSkills);
             }
@@ -189,8 +189,8 @@ namespace FusionManager.Models
             int maximumTransferableSkills = 0;
             List<Skill> skills = new List<Skill>();
 
-            //Check for compendium skill list, if it doesn't exist, use the learned skills.
-            if (first.InheritedSkills != null && first.InheritedSkills.Count > 0)
+            //Check for compendium existence, if it doesn't exist, use the learned skills.
+            if (first.HasCompendiumEntry)
             {
                 skills.AddRange(first.InheritedSkills);
             }
@@ -199,7 +199,7 @@ namespace FusionManager.Models
                 skills.AddRange(first.LearnedSkills.Where(o => o.LevelLearned <= first.ActualLevel).Select(o => o.Skill).ToList<Skill>());
             }
 
-            if (second.InheritedSkills != null && second.InheritedSkills.Count > 0)
+            if (second.HasCompendiumEntry)
             {
                 skills.AddRange(second.InheritedSkills);
             }
@@ -208,7 +208,7 @@ namespace FusionManager.Models
                 skills.AddRange(second.LearnedSkills.Where(o => o.LevelLearned <= second.ActualLevel).Select(o => o.Skill).ToList<Skill>());
             }
 
-            if (third.InheritedSkills != null && third.InheritedSkills.Count > 0)
+            if (third.HasCompendiumEntry)
             {
                 skills.AddRange(third.InheritedSkills);
             }

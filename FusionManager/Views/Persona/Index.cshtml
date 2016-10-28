@@ -25,8 +25,16 @@
                 }
             </div>
             <div class="card-footer">
-                @Html.ActionLink("Show Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Compendium", "CompendiumDetails", new { id = item.ID }) |                
+                @Html.ActionLink("Show Details", "Details", new { name = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name)) }) |
+                @if (item.HasCompendiumEntry)
+                {
+                    @Html.ActionLink("Compendium", "CompendiumDetails", new { name = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name)) }) 
+                }
+                else
+                {
+                    @Html.ActionLink("Compendium", "CompendiumEdit", new { name = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name)) }) 
+                }
+                 |
                 @Html.ActionLink("How Do I Fuse?", "Delete", new { /* id=item.PrimaryKey */ })
             </div>
         </div>

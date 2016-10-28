@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace FusionManager.Models
 {
     public class Persona
-    {
-        public int ID { get; set; }        
+    {        
         public string Name { get; set; }
         public Arcana Arcana { get; set; }
         public int InitialLevel { get; set; }
@@ -21,6 +20,7 @@ namespace FusionManager.Models
         public Skill ExtractedSkill { get; set; }
         public PersonaInheritanceType InheritanceType { get; set; }
         public List<SkillInheritance> InheritableSkillTypes { get; set; }
+        public bool HasCompendiumEntry { get; set; }
         public string SkillsList
         {
             get
@@ -80,21 +80,6 @@ namespace FusionManager.Models
         public override int GetHashCode()
         {
             return base.GetHashCode();
-        }
-
-        public bool HasCompendiumEntry
-        {
-            get
-            {
-                if(InheritedSkills != null && InheritedSkills.Count > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        }        
     }
 }
