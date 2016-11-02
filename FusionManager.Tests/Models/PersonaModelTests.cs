@@ -168,5 +168,21 @@ namespace FusionManager.Tests.Models
             Assert.AreEqual(expected.Item1, result.Item1);
             Assert.AreEqual(expected.Item2, result.Item2);
         }
+
+        [TestMethod]
+        public void GetAllPossibleInheritableSkillsForPersonaByPersonaName()
+        {
+            //Arrange
+            string name = "Jack Frost";
+
+            //Act
+            var result = model.GetAllPossibleInheritableSkillsForPersonaByPersonaName(name);
+
+            //Assert
+            CollectionAssert.AllItemsAreNotNull(result);
+            CollectionAssert.AllItemsAreUnique(result);
+            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Skill));
+            Assert.AreNotEqual(result.Count, 0);
+        }
     }
 }

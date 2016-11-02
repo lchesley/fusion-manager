@@ -122,7 +122,16 @@ namespace FusionManager.Models
 
         public List<Skill> GetAllPossibleInheritableSkillsForPersonaByPersonaName(string name)
         {
-            throw new NotImplementedException();
+            List<Skill> skills = new List<Skill>();
+
+            Persona persona = GetPersonaByPersonaName(name);
+
+            foreach(SkillInheritance inheritence in persona.InheritableSkillTypes)
+            {
+                skills.AddRange(skillModel.GetInheritableSkillsByInheritanceType(inheritence.Type));
+            }
+
+            return skills;
         }
     }
 }

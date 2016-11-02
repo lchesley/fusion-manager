@@ -52,33 +52,32 @@ namespace FusionManager.Controllers
 
         public ActionResult CompendiumEdit(string name)
         {
-            //CompendiumEntryModel model = new CompendiumEntryModel();
-            //CompendiumEntry entry = new CompendiumEntry();
+            CompendiumEntryModel model = new CompendiumEntryModel();
+            CompendiumEntry entry = new CompendiumEntry();
 
-            //if (ID > 0)
-            //{
-            //    Persona persona = repository.GetPersonaByPersonaName(name);                
+            if (!String.IsNullOrEmpty(name))
+            {
+                Persona persona = repository.GetPersonaByPersonaName(repository.ConvertToStringFromBase64(name));
 
-            //    if (persona.HasCompendiumEntry)
-            //    {
-            //        entry = repository.GetCompendiumEntry(persona.Name);
-            //        model.InheritedSkills = persona.InheritedSkills;
-            //    }
-            //    else
-            //    {
-            //        entry.PersonaName = persona.Name;
-            //        entry.ActualLevel = persona.ActualLevel;                                                            
-            //    }
-            //}
-            //else
-            //{
-            //    model.PersonaNames = repository.GetPersonaNames(false);
-            //}
+                if (persona.HasCompendiumEntry)
+                {
+                    entry = repository.GetCompendiumEntry(persona.Name);
+                    model.InheritedSkills = persona.InheritedSkills;
+                }
+                else
+                {
+                    entry.PersonaName = persona.Name;
+                    entry.ActualLevel = persona.ActualLevel;
+                }
+            }
+            else
+            {
+                model.PersonaNames = repository.GetPersonaNames(false);
+            }
 
-            //model.Entry = entry;
+            model.Entry = entry;
 
-            //return View(model);
-            return View();
+            return View(model);           
         }
     }
 }

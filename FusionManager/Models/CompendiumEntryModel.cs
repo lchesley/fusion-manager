@@ -10,6 +10,7 @@ namespace FusionManager.Models
     {
         public CompendiumEntry Entry { get; set; }
         public List<Skill> InheritedSkills { get; set; }
+        public List<Skill> AllInheritableSkills { get; set; }
         public List<SelectListItem> PersonaNames { get; set; }
     }
 }
